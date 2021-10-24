@@ -1,7 +1,7 @@
-package org.sangeet.kgraphql.schema.dsl.types
+package com.apurebase.kgraphql.schema.dsl.types
 
-import org.sangeet.kgraphql.schema.dsl.DepreciableItemDSL
-import org.sangeet.kgraphql.schema.model.InputValueDef
+import com.apurebase.kgraphql.schema.dsl.DepreciableItemDSL
+import com.apurebase.kgraphql.schema.model.InputValueDef
 import kotlin.reflect.KClass
 import kotlin.reflect.KType
 

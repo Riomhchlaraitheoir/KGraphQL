@@ -1,11 +1,11 @@
-package org.sangeet.kgraphql.schema.dsl
+package com.apurebase.kgraphql.schema.dsl
 
-import org.sangeet.kgraphql.configuration.PluginConfiguration
+import com.apurebase.kgraphql.configuration.PluginConfiguration
 import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
-import org.sangeet.kgraphql.configuration.SchemaConfiguration
-import org.sangeet.kgraphql.schema.execution.Executor
+import com.apurebase.kgraphql.configuration.SchemaConfiguration
+import com.apurebase.kgraphql.schema.execution.Executor
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlin.reflect.KClass

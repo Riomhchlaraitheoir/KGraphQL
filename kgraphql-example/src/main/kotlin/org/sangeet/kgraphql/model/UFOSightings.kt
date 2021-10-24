@@ -1,4 +1,4 @@
-package org.sangeet.kgraphql.model
+package com.apurebase.kgraphql.model
 
 import org.jetbrains.exposed.sql.Table
 import org.jetbrains.exposed.sql.`java-time`.date

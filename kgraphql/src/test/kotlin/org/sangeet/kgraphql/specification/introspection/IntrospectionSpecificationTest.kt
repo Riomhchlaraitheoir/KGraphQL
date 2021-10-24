@@ -1,9 +1,9 @@
-package org.sangeet.kgraphql.specification.introspection
+package com.apurebase.kgraphql.specification.introspection
 
-import org.sangeet.kgraphql.*
-import org.sangeet.kgraphql.integration.BaseSchemaTest.Companion.INTROSPECTION_QUERY
-import org.sangeet.kgraphql.schema.introspection.TypeKind
-import org.sangeet.kgraphql.GraphQLError
+import com.apurebase.kgraphql.*
+import com.apurebase.kgraphql.integration.BaseSchemaTest.Companion.INTROSPECTION_QUERY
+import com.apurebase.kgraphql.schema.introspection.TypeKind
+import com.apurebase.kgraphql.GraphQLError
 import org.amshove.kluent.*
 import org.hamcrest.CoreMatchers.*
 import org.hamcrest.MatcherAssert.assertThat

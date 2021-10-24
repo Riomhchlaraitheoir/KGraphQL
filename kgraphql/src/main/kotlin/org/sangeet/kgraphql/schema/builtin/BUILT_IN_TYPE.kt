@@ -1,15 +1,15 @@
 @file:Suppress("ClassName", "RemoveRedundantQualifierName")
 
-package org.sangeet.kgraphql.schema.builtin
+package com.apurebase.kgraphql.schema.builtin
 
-import org.sangeet.kgraphql.defaultKQLTypeName
-import org.sangeet.kgraphql.dropQuotes
-import org.sangeet.kgraphql.isLiteral
-import org.sangeet.kgraphql.schema.model.ast.ValueNode
-import org.sangeet.kgraphql.schema.model.ast.ValueNode.*
-import org.sangeet.kgraphql.GraphQLError
-import org.sangeet.kgraphql.schema.model.TypeDef
-import org.sangeet.kgraphql.schema.scalar.StringScalarCoercion
+import com.apurebase.kgraphql.defaultKQLTypeName
+import com.apurebase.kgraphql.dropQuotes
+import com.apurebase.kgraphql.isLiteral
+import com.apurebase.kgraphql.schema.model.ast.ValueNode
+import com.apurebase.kgraphql.schema.model.ast.ValueNode.*
+import com.apurebase.kgraphql.GraphQLError
+import com.apurebase.kgraphql.schema.model.TypeDef
+import com.apurebase.kgraphql.schema.scalar.StringScalarCoercion
 
 
 private const val STRING_DESCRIPTION =

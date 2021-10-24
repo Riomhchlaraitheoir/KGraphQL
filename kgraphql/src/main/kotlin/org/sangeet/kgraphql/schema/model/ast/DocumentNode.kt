@@ -1,4 +1,4 @@
-package org.sangeet.kgraphql.schema.model.ast
+package com.apurebase.kgraphql.schema.model.ast
 
 data class DocumentNode(
     val loc: Location?,

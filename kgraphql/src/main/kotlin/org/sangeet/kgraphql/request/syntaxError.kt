@@ -1,7 +1,7 @@
-package org.sangeet.kgraphql.request
+package com.apurebase.kgraphql.request
 
-import org.sangeet.kgraphql.GraphQLError
-import org.sangeet.kgraphql.schema.model.ast.Source
+import com.apurebase.kgraphql.GraphQLError
+import com.apurebase.kgraphql.schema.model.ast.Source
 
 internal fun syntaxError(
     source: Source,

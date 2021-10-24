@@ -1,6 +1,6 @@
-package org.sangeet.kgraphql.integration
+package com.apurebase.kgraphql.integration
 
-import org.sangeet.kgraphql.*
+import com.apurebase.kgraphql.*
 import org.junit.jupiter.api.AfterEach
 import java.io.ByteArrayInputStream
 

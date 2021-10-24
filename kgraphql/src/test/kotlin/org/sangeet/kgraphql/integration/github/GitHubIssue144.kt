@@ -1,6 +1,6 @@
-package org.sangeet.kgraphql.integration.github
+package com.apurebase.kgraphql.integration.github
 
-import org.sangeet.kgraphql.KGraphQL
+import com.apurebase.kgraphql.KGraphQL
 import org.junit.jupiter.api.Test
 import java.time.LocalDate
 

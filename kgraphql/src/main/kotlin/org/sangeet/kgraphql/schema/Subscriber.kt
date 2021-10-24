@@ -1,4 +1,4 @@
-package org.sangeet.kgraphql.schema
+package com.apurebase.kgraphql.schema
 
 import com.fasterxml.jackson.databind.ObjectWriter
 

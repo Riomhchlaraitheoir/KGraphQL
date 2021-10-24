@@ -1,6 +1,6 @@
-package org.sangeet.kgraphql.helpers
+package com.apurebase.kgraphql.helpers
 
-import org.sangeet.kgraphql.schema.execution.Execution
+import com.apurebase.kgraphql.schema.execution.Execution
 
 /**
  * This returns a list of all scalar fields requested on this type.

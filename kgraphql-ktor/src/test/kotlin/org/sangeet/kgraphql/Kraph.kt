@@ -1,4 +1,4 @@
-package org.sangeet.kgraphql
+package com.apurebase.kgraphql
 
 import kotlinx.serialization.json.*
 

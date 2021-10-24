@@ -1,8 +1,8 @@
-package org.sangeet.kgraphql.specification.typesystem
+package com.apurebase.kgraphql.specification.typesystem
 
-import org.sangeet.kgraphql.*
-import org.sangeet.kgraphql.GraphQLError
-import org.sangeet.kgraphql.schema.execution.Executor
+import com.apurebase.kgraphql.*
+import com.apurebase.kgraphql.GraphQLError
+import com.apurebase.kgraphql.schema.execution.Executor
 import org.amshove.kluent.*
 import org.hamcrest.CoreMatchers.nullValue
 import org.hamcrest.MatcherAssert.assertThat

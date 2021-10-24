@@ -1,4 +1,4 @@
-package org.sangeet.kgraphql.request
+package com.apurebase.kgraphql.request
 
 /**
  * Raw reference to type, e.g. in query variables section '($var: [String!]!)', '[String!]!' is type reference

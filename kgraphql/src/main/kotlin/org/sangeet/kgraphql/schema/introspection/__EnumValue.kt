@@ -1,6 +1,6 @@
-package org.sangeet.kgraphql.schema.introspection
+package com.apurebase.kgraphql.schema.introspection
 
-import org.sangeet.kgraphql.schema.model.Depreciable
+import com.apurebase.kgraphql.schema.model.Depreciable
 
 
 interface __EnumValue: Depreciable, __Described

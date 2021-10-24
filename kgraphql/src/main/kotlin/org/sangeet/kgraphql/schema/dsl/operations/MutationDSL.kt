@@ -1,6 +1,6 @@
-package org.sangeet.kgraphql.schema.dsl.operations
+package com.apurebase.kgraphql.schema.dsl.operations
 
-import org.sangeet.kgraphql.schema.model.MutationDef
+import com.apurebase.kgraphql.schema.model.MutationDef
 
 class MutationDSL(
     name: String

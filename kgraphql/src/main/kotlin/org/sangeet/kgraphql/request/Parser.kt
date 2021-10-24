@@ -1,9 +1,9 @@
-package org.sangeet.kgraphql.request
+package com.apurebase.kgraphql.request
 
-import org.sangeet.kgraphql.schema.directive.DirectiveLocation
-import org.sangeet.kgraphql.schema.model.ast.*
-import org.sangeet.kgraphql.schema.model.ast.OperationTypeNode.*
-import org.sangeet.kgraphql.schema.model.ast.TokenKindEnum.*
+import com.apurebase.kgraphql.schema.directive.DirectiveLocation
+import com.apurebase.kgraphql.schema.model.ast.*
+import com.apurebase.kgraphql.schema.model.ast.OperationTypeNode.*
+import com.apurebase.kgraphql.schema.model.ast.TokenKindEnum.*
 
 open class Parser {
     private val options: Options

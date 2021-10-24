@@ -1,6 +1,6 @@
-package org.sangeet.kgraphql.schema.dsl.operations
+package com.apurebase.kgraphql.schema.dsl.operations
 
-import org.sangeet.kgraphql.schema.model.QueryDef
+import com.apurebase.kgraphql.schema.model.QueryDef
 
 class QueryDSL(
     name: String

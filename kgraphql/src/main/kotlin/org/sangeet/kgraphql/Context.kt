@@ -1,6 +1,6 @@
-package org.sangeet.kgraphql
+package com.apurebase.kgraphql
 
-import org.sangeet.kgraphql.schema.introspection.NotIntrospected
+import com.apurebase.kgraphql.schema.introspection.NotIntrospected
 import kotlin.reflect.KClass
 
 @NotIntrospected

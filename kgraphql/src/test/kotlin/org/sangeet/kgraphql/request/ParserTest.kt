@@ -1,18 +1,18 @@
-package org.sangeet.kgraphql.request
+package com.apurebase.kgraphql.request
 
-import org.sangeet.kgraphql.schema.model.ast.DefinitionNode.ExecutableDefinitionNode.OperationDefinitionNode
-import org.sangeet.kgraphql.schema.model.ast.OperationTypeNode.QUERY
-import org.sangeet.kgraphql.schema.model.ast.SelectionNode.FieldNode
-import org.sangeet.kgraphql.schema.model.ast.TokenKindEnum.EOF
-import org.sangeet.kgraphql.schema.model.ast.TokenKindEnum.SOF
-import org.sangeet.kgraphql.schema.model.ast.TypeNode.NonNullTypeNode
-import org.sangeet.kgraphql.schema.model.ast.TypeNode.ListTypeNode
-import org.sangeet.kgraphql.schema.model.ast.TypeNode.NamedTypeNode
-import org.sangeet.kgraphql.schema.model.ast.ValueNode.*
-import org.sangeet.kgraphql.GraphQLError
-import org.sangeet.kgraphql.ResourceFiles.kitchenSinkQuery
-import org.sangeet.kgraphql.d
-import org.sangeet.kgraphql.schema.model.ast.*
+import com.apurebase.kgraphql.schema.model.ast.DefinitionNode.ExecutableDefinitionNode.OperationDefinitionNode
+import com.apurebase.kgraphql.schema.model.ast.OperationTypeNode.QUERY
+import com.apurebase.kgraphql.schema.model.ast.SelectionNode.FieldNode
+import com.apurebase.kgraphql.schema.model.ast.TokenKindEnum.EOF
+import com.apurebase.kgraphql.schema.model.ast.TokenKindEnum.SOF
+import com.apurebase.kgraphql.schema.model.ast.TypeNode.NonNullTypeNode
+import com.apurebase.kgraphql.schema.model.ast.TypeNode.ListTypeNode
+import com.apurebase.kgraphql.schema.model.ast.TypeNode.NamedTypeNode
+import com.apurebase.kgraphql.schema.model.ast.ValueNode.*
+import com.apurebase.kgraphql.GraphQLError
+import com.apurebase.kgraphql.ResourceFiles.kitchenSinkQuery
+import com.apurebase.kgraphql.d
+import com.apurebase.kgraphql.schema.model.ast.*
 import org.amshove.kluent.*
 import org.junit.jupiter.api.Test
 

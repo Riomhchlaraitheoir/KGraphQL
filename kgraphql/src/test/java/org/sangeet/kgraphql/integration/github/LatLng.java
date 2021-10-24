@@ -1,4 +1,4 @@
-package org.sangeet.kgraphql.integration.github;
+package com.apurebase.kgraphql.integration.github;
 
 public class LatLng {
     public double lat;

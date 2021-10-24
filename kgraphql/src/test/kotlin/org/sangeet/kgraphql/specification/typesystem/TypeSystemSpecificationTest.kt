@@ -1,9 +1,9 @@
-package org.sangeet.kgraphql.specification.typesystem
+package com.apurebase.kgraphql.specification.typesystem
 
-import org.sangeet.kgraphql.KGraphQL.Companion.schema
-import org.sangeet.kgraphql.Specification
-import org.sangeet.kgraphql.expect
-import org.sangeet.kgraphql.schema.SchemaException
+import com.apurebase.kgraphql.KGraphQL.Companion.schema
+import com.apurebase.kgraphql.Specification
+import com.apurebase.kgraphql.expect
+import com.apurebase.kgraphql.schema.SchemaException
 import org.junit.jupiter.api.Test
 
 @Specification("3 Type System")

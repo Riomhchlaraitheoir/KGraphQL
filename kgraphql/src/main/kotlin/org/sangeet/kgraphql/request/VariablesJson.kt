@@ -1,10 +1,10 @@
-package org.sangeet.kgraphql.request
+package com.apurebase.kgraphql.request
 
-import org.sangeet.kgraphql.ExecutionException
-import org.sangeet.kgraphql.GraphQLError
-import org.sangeet.kgraphql.getIterableElementType
-import org.sangeet.kgraphql.isIterable
-import org.sangeet.kgraphql.schema.model.ast.NameNode
+import com.apurebase.kgraphql.ExecutionException
+import com.apurebase.kgraphql.GraphQLError
+import com.apurebase.kgraphql.getIterableElementType
+import com.apurebase.kgraphql.isIterable
+import com.apurebase.kgraphql.schema.model.ast.NameNode
 import com.fasterxml.jackson.databind.JavaType
 import com.fasterxml.jackson.databind.JsonNode
 import com.fasterxml.jackson.databind.ObjectMapper

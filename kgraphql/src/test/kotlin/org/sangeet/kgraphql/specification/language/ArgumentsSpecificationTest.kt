@@ -1,11 +1,11 @@
-package org.sangeet.kgraphql.specification.language
+package com.apurebase.kgraphql.specification.language
 
-import org.sangeet.kgraphql.Actor
-import org.sangeet.kgraphql.Specification
-import org.sangeet.kgraphql.defaultSchema
-import org.sangeet.kgraphql.deserialize
-import org.sangeet.kgraphql.executeEqualQueries
-import org.sangeet.kgraphql.schema.execution.Executor
+import com.apurebase.kgraphql.Actor
+import com.apurebase.kgraphql.Specification
+import com.apurebase.kgraphql.defaultSchema
+import com.apurebase.kgraphql.deserialize
+import com.apurebase.kgraphql.executeEqualQueries
+import com.apurebase.kgraphql.schema.execution.Executor
 import org.hamcrest.CoreMatchers.equalTo
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.jupiter.api.Test

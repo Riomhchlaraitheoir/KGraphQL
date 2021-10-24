@@ -1,6 +1,6 @@
-package org.sangeet.kgraphql
+package com.apurebase.kgraphql
 
-import org.sangeet.kgraphql.model.User
+import com.apurebase.kgraphql.model.User
 import io.ktor.server.application.Application
 import io.ktor.server.application.install
 import io.ktor.server.auth.Authentication

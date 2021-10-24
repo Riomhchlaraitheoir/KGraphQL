@@ -1,6 +1,6 @@
-package org.sangeet.kgraphql.schema.dsl
+package com.apurebase.kgraphql.schema.dsl
 
-import org.sangeet.kgraphql.Context
+import com.apurebase.kgraphql.Context
 
 
 abstract class LimitedAccessItemDSL<PARENT> : DepreciableItemDSL() {

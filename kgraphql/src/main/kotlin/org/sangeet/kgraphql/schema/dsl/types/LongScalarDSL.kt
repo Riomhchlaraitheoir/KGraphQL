@@ -1,9 +1,9 @@
-package org.sangeet.kgraphql.schema.dsl.types
+package com.apurebase.kgraphql.schema.dsl.types
 
-import org.sangeet.kgraphql.schema.SchemaException
-import org.sangeet.kgraphql.schema.model.ast.ValueNode
-import org.sangeet.kgraphql.schema.scalar.LongScalarCoercion
-import org.sangeet.kgraphql.schema.scalar.ScalarCoercion
+import com.apurebase.kgraphql.schema.SchemaException
+import com.apurebase.kgraphql.schema.model.ast.ValueNode
+import com.apurebase.kgraphql.schema.scalar.LongScalarCoercion
+import com.apurebase.kgraphql.schema.scalar.ScalarCoercion
 import kotlin.reflect.KClass
 
 

@@ -1,4 +1,4 @@
-package org.sangeet.kgraphql.schema.directive
+package com.apurebase.kgraphql.schema.directive
 
 /**
  * right now its only wrapper for [include], but GraphQL creators foreshadowed that

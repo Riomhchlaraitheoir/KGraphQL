@@ -1,4 +1,4 @@
-package org.sangeet.kgraphql.schema.dsl.types
+package com.apurebase.kgraphql.schema.dsl.types
 
 import kotlin.reflect.KClass
 import kotlin.reflect.KType

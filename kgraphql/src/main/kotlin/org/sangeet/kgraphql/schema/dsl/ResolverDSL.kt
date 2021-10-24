@@ -1,7 +1,7 @@
-package org.sangeet.kgraphql.schema.dsl
+package com.apurebase.kgraphql.schema.dsl
 
-import org.sangeet.kgraphql.schema.dsl.types.InputValuesDSL
-import org.sangeet.kgraphql.schema.model.InputValueDef
+import com.apurebase.kgraphql.schema.dsl.types.InputValuesDSL
+import com.apurebase.kgraphql.schema.model.InputValueDef
 import kotlin.reflect.*
 
 

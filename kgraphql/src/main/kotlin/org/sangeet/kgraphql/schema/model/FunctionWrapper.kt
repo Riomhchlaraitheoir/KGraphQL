@@ -1,11 +1,11 @@
 @file:Suppress("UNCHECKED_CAST")
 
-package org.sangeet.kgraphql.schema.model
+package com.apurebase.kgraphql.schema.model
 
-import org.sangeet.kgraphql.schema.Publisher
-import org.sangeet.kgraphql.schema.SchemaException
-import org.sangeet.kgraphql.schema.Subscriber
-import org.sangeet.kgraphql.schema.structure.validateName
+import com.apurebase.kgraphql.schema.Publisher
+import com.apurebase.kgraphql.schema.SchemaException
+import com.apurebase.kgraphql.schema.Subscriber
+import com.apurebase.kgraphql.schema.structure.validateName
 import com.fasterxml.jackson.databind.ObjectWriter
 import kotlin.reflect.KFunction
 import kotlin.reflect.KType

@@ -1,8 +1,8 @@
-package org.sangeet.kgraphql.specification.introspection
+package com.apurebase.kgraphql.specification.introspection
 
-import org.sangeet.kgraphql.defaultSchema
-import org.sangeet.kgraphql.deserialize
-import org.sangeet.kgraphql.extract
+import com.apurebase.kgraphql.defaultSchema
+import com.apurebase.kgraphql.deserialize
+import com.apurebase.kgraphql.extract
 import org.hamcrest.CoreMatchers.equalTo
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.jupiter.api.Test

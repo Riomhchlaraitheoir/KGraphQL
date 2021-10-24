@@ -1,8 +1,8 @@
-package org.sangeet.kgraphql.schema.structure
+package com.apurebase.kgraphql.schema.structure
 
-import org.sangeet.kgraphql.Context
-import org.sangeet.kgraphql.schema.introspection.*
-import org.sangeet.kgraphql.schema.model.*
+import com.apurebase.kgraphql.Context
+import com.apurebase.kgraphql.schema.introspection.*
+import com.apurebase.kgraphql.schema.model.*
 import nidomiro.kdataloader.factories.DataLoaderFactory
 import kotlin.reflect.full.findAnnotation
 

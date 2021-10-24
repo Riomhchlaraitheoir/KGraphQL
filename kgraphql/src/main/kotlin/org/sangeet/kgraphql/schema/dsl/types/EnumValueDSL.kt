@@ -1,6 +1,6 @@
-package org.sangeet.kgraphql.schema.dsl.types
+package com.apurebase.kgraphql.schema.dsl.types
 
-import org.sangeet.kgraphql.schema.dsl.DepreciableItemDSL
+import com.apurebase.kgraphql.schema.dsl.DepreciableItemDSL
 
 
 class EnumValueDSL<T : Enum<T>>(val value: T) : DepreciableItemDSL()

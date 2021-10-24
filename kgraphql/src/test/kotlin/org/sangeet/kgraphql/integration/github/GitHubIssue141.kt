@@ -1,8 +1,8 @@
-package org.sangeet.kgraphql.integration.github
+package com.apurebase.kgraphql.integration.github
 
-import org.sangeet.kgraphql.KGraphQL
-import org.sangeet.kgraphql.deserialize
-import org.sangeet.kgraphql.extract
+import com.apurebase.kgraphql.KGraphQL
+import com.apurebase.kgraphql.deserialize
+import com.apurebase.kgraphql.extract
 import org.amshove.kluent.shouldBeEqualTo
 import org.junit.jupiter.api.Test
 

@@ -1,9 +1,9 @@
-package org.sangeet.kgraphql.schema.structure
+package com.apurebase.kgraphql.schema.structure
 
-import org.sangeet.kgraphql.schema.directive.Directive
-import org.sangeet.kgraphql.schema.introspection.NotIntrospected
-import org.sangeet.kgraphql.schema.introspection.__Schema
-import org.sangeet.kgraphql.schema.introspection.__Type
+import com.apurebase.kgraphql.schema.directive.Directive
+import com.apurebase.kgraphql.schema.introspection.NotIntrospected
+import com.apurebase.kgraphql.schema.introspection.__Schema
+import com.apurebase.kgraphql.schema.introspection.__Type
 import kotlin.reflect.KClass
 import kotlin.reflect.full.findAnnotation
 

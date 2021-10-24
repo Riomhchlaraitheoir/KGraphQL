@@ -1,9 +1,9 @@
-package org.sangeet.kgraphql.integration
+package com.apurebase.kgraphql.integration
 
-import org.sangeet.kgraphql.KGraphQL
-import org.sangeet.kgraphql.extract
-import org.sangeet.kgraphql.deserialize
-import org.sangeet.kgraphql.GraphQLError
+import com.apurebase.kgraphql.KGraphQL
+import com.apurebase.kgraphql.extract
+import com.apurebase.kgraphql.deserialize
+import com.apurebase.kgraphql.GraphQLError
 import kotlinx.coroutines.delay
 import org.hamcrest.CoreMatchers
 import org.hamcrest.MatcherAssert

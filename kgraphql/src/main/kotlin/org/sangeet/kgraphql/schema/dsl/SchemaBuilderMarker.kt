@@ -1,4 +1,4 @@
-package org.sangeet.kgraphql.schema.dsl
+package com.apurebase.kgraphql.schema.dsl
 
 @DslMarker
 annotation class SchemaBuilderMarker

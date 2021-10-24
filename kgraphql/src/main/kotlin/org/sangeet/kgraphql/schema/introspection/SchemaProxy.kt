@@ -1,10 +1,10 @@
-package org.sangeet.kgraphql.schema.introspection
+package com.apurebase.kgraphql.schema.introspection
 
-import org.sangeet.kgraphql.Context
-import org.sangeet.kgraphql.configuration.SchemaConfiguration
-import org.sangeet.kgraphql.schema.execution.ExecutionOptions
-import org.sangeet.kgraphql.schema.structure.LookupSchema
-import org.sangeet.kgraphql.schema.structure.Type
+import com.apurebase.kgraphql.Context
+import com.apurebase.kgraphql.configuration.SchemaConfiguration
+import com.apurebase.kgraphql.schema.execution.ExecutionOptions
+import com.apurebase.kgraphql.schema.structure.LookupSchema
+import com.apurebase.kgraphql.schema.structure.Type
 import kotlin.reflect.KClass
 import kotlin.reflect.KType
 

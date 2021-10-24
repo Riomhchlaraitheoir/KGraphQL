@@ -1,4 +1,4 @@
-package org.sangeet.kgraphql.schema.execution
+package com.apurebase.kgraphql.schema.execution
 
 class ExecutionPlan (
     val options: ExecutionOptions,

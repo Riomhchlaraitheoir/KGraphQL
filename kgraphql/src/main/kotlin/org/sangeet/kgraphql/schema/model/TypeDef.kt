@@ -1,7 +1,7 @@
-package org.sangeet.kgraphql.schema.model
+package com.apurebase.kgraphql.schema.model
 
-import org.sangeet.kgraphql.schema.scalar.ScalarCoercion
-import org.sangeet.kgraphql.schema.structure.Type
+import com.apurebase.kgraphql.schema.scalar.ScalarCoercion
+import com.apurebase.kgraphql.schema.structure.Type
 import kotlin.reflect.KClass
 import kotlin.reflect.KProperty1
 

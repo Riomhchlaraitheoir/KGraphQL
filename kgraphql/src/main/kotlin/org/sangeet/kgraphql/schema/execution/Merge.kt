@@ -1,4 +1,4 @@
-package org.sangeet.kgraphql.schema.execution
+package com.apurebase.kgraphql.schema.execution
 
 import com.fasterxml.jackson.databind.JsonNode
 import com.fasterxml.jackson.databind.node.ObjectNode

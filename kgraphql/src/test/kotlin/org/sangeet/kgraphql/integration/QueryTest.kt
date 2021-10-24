@@ -1,9 +1,9 @@
-package org.sangeet.kgraphql.integration
+package com.apurebase.kgraphql.integration
 
-import org.sangeet.kgraphql.*
-import org.sangeet.kgraphql.GraphQLError
-import org.sangeet.kgraphql.helpers.getFields
-import org.sangeet.kgraphql.schema.execution.Execution
+import com.apurebase.kgraphql.*
+import com.apurebase.kgraphql.GraphQLError
+import com.apurebase.kgraphql.helpers.getFields
+import com.apurebase.kgraphql.schema.execution.Execution
 import org.amshove.kluent.*
 import org.hamcrest.CoreMatchers.equalTo
 import org.hamcrest.MatcherAssert.assertThat

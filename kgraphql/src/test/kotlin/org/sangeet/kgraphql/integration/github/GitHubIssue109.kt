@@ -1,7 +1,7 @@
-package org.sangeet.kgraphql.integration.github
+package com.apurebase.kgraphql.integration.github
 
-import org.sangeet.kgraphql.KGraphQL
-import org.sangeet.kgraphql.objectMapper
+import com.apurebase.kgraphql.KGraphQL
+import com.apurebase.kgraphql.objectMapper
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
 import org.amshove.kluent.`should contain`

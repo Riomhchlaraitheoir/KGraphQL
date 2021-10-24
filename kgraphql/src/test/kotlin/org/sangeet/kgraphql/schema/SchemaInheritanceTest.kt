@@ -1,8 +1,8 @@
-package org.sangeet.kgraphql.schema
+package com.apurebase.kgraphql.schema
 
-import org.sangeet.kgraphql.KGraphQL
-import org.sangeet.kgraphql.deserialize
-import org.sangeet.kgraphql.GraphQLError
+import com.apurebase.kgraphql.KGraphQL
+import com.apurebase.kgraphql.deserialize
+import com.apurebase.kgraphql.GraphQLError
 import org.amshove.kluent.invoking
 import org.amshove.kluent.shouldThrow
 import org.amshove.kluent.withMessage

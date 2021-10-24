@@ -1,8 +1,8 @@
-package org.sangeet.kgraphql
+package com.apurebase.kgraphql
 
-import org.sangeet.kgraphql.schema.DefaultSchema
-import org.sangeet.kgraphql.schema.Schema
-import org.sangeet.kgraphql.schema.dsl.SchemaBuilder
+import com.apurebase.kgraphql.schema.DefaultSchema
+import com.apurebase.kgraphql.schema.Schema
+import com.apurebase.kgraphql.schema.dsl.SchemaBuilder
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import org.amshove.kluent.shouldBeEqualTo
 import org.amshove.kluent.shouldEqual

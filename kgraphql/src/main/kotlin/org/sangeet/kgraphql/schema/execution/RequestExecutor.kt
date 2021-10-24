@@ -1,7 +1,7 @@
-package org.sangeet.kgraphql.schema.execution
+package com.apurebase.kgraphql.schema.execution
 
-import org.sangeet.kgraphql.Context
-import org.sangeet.kgraphql.request.VariablesJson
+import com.apurebase.kgraphql.Context
+import com.apurebase.kgraphql.request.VariablesJson
 
 
 interface RequestExecutor {

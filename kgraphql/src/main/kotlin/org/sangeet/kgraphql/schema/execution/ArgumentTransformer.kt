@@ -1,13 +1,13 @@
-package org.sangeet.kgraphql.schema.execution
+package com.apurebase.kgraphql.schema.execution
 
-import org.sangeet.kgraphql.ExecutionException
-import org.sangeet.kgraphql.request.Variables
-import org.sangeet.kgraphql.schema.DefaultSchema
-import org.sangeet.kgraphql.schema.model.ast.ValueNode
-import org.sangeet.kgraphql.GraphQLError
-import org.sangeet.kgraphql.schema.scalar.deserializeScalar
-import org.sangeet.kgraphql.schema.structure.InputValue
-import org.sangeet.kgraphql.schema.structure.Type
+import com.apurebase.kgraphql.ExecutionException
+import com.apurebase.kgraphql.request.Variables
+import com.apurebase.kgraphql.schema.DefaultSchema
+import com.apurebase.kgraphql.schema.model.ast.ValueNode
+import com.apurebase.kgraphql.GraphQLError
+import com.apurebase.kgraphql.schema.scalar.deserializeScalar
+import com.apurebase.kgraphql.schema.structure.InputValue
+import com.apurebase.kgraphql.schema.structure.Type
 import kotlin.reflect.KType
 import kotlin.reflect.full.primaryConstructor
 import kotlin.reflect.jvm.jvmErasure

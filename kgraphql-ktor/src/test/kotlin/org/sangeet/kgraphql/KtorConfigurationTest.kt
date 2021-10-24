@@ -1,6 +1,6 @@
-package org.sangeet.kgraphql
+package com.apurebase.kgraphql
 
-import org.sangeet.kgraphql.schema.execution.Executor
+import com.apurebase.kgraphql.schema.execution.Executor
 import io.ktor.server.application.install
 import io.ktor.server.testing.withTestApplication
 import org.amshove.kluent.shouldBeEqualTo

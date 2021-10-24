@@ -1,14 +1,14 @@
-package org.sangeet.kgraphql.schema.structure
+package com.apurebase.kgraphql.schema.structure
 
-import org.sangeet.kgraphql.Context
-import org.sangeet.kgraphql.schema.execution.Execution
-import org.sangeet.kgraphql.schema.introspection.TypeKind
-import org.sangeet.kgraphql.schema.introspection.__EnumValue
-import org.sangeet.kgraphql.schema.introspection.__Field
-import org.sangeet.kgraphql.schema.introspection.__InputValue
-import org.sangeet.kgraphql.schema.introspection.__Type
-import org.sangeet.kgraphql.schema.introspection.asString
-import org.sangeet.kgraphql.schema.model.TypeDef
+import com.apurebase.kgraphql.Context
+import com.apurebase.kgraphql.schema.execution.Execution
+import com.apurebase.kgraphql.schema.introspection.TypeKind
+import com.apurebase.kgraphql.schema.introspection.__EnumValue
+import com.apurebase.kgraphql.schema.introspection.__Field
+import com.apurebase.kgraphql.schema.introspection.__InputValue
+import com.apurebase.kgraphql.schema.introspection.__Type
+import com.apurebase.kgraphql.schema.introspection.asString
+import com.apurebase.kgraphql.schema.model.TypeDef
 import kotlin.reflect.KClass
 import kotlin.reflect.KType
 import kotlin.reflect.KTypeProjection

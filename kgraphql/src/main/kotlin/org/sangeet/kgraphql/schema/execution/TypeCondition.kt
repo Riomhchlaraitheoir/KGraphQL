@@ -1,6 +1,6 @@
-package org.sangeet.kgraphql.schema.execution
+package com.apurebase.kgraphql.schema.execution
 
-import org.sangeet.kgraphql.schema.structure.Type
+import com.apurebase.kgraphql.schema.structure.Type
 
 /**
  * type conditions can be declared on fragments

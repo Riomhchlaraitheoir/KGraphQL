@@ -1,7 +1,7 @@
-package org.sangeet.kgraphql.schema.model.ast
+package com.apurebase.kgraphql.schema.model.ast
 
-import org.sangeet.kgraphql.schema.model.ast.TypeNode.NamedTypeNode
-import org.sangeet.kgraphql.schema.model.ast.ValueNode.*
+import com.apurebase.kgraphql.schema.model.ast.TypeNode.NamedTypeNode
+import com.apurebase.kgraphql.schema.model.ast.ValueNode.*
 
 
 sealed class DefinitionNode(override val loc: Location?): ASTNode() {

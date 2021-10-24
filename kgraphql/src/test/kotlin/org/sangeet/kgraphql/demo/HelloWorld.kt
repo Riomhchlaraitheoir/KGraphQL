@@ -1,6 +1,6 @@
-package org.sangeet.kgraphql.demo
+package com.apurebase.kgraphql.demo
 
-import org.sangeet.kgraphql.KGraphQL
+import com.apurebase.kgraphql.KGraphQL
 
 fun main() {
     val schema = KGraphQL.schema {

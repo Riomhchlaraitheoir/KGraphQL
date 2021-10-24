@@ -1,6 +1,6 @@
-package org.sangeet.kgraphql
+package com.apurebase.kgraphql
 
-import org.sangeet.kgraphql.model.UFOSighting
+import com.apurebase.kgraphql.model.UFOSighting
 import java.time.LocalDate
 
 fun CreateUFOSightingInput.toUFOSighting() : UFOSighting {

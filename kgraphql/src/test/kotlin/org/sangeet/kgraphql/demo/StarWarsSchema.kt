@@ -1,7 +1,7 @@
-package org.sangeet.kgraphql.demo
+package com.apurebase.kgraphql.demo
 
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
-import org.sangeet.kgraphql.KGraphQL
+import com.apurebase.kgraphql.KGraphQL
 
 enum class Episode {
     NEWHOPE, EMPIRE, JEDI

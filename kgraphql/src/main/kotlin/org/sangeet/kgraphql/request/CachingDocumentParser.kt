@@ -1,6 +1,6 @@
-package org.sangeet.kgraphql.request
+package com.apurebase.kgraphql.request
 
-import org.sangeet.kgraphql.schema.model.ast.DocumentNode
+import com.apurebase.kgraphql.schema.model.ast.DocumentNode
 import com.github.benmanes.caffeine.cache.Caffeine
 
 

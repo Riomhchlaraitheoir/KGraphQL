@@ -1,4 +1,4 @@
-package org.sangeet.kgraphql.configuration
+package com.apurebase.kgraphql.configuration
 
 
 interface PluginConfiguration

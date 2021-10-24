@@ -1,8 +1,8 @@
-package org.sangeet.kgraphql.request
+package com.apurebase.kgraphql.request
 
-import org.sangeet.kgraphql.schema.structure.dedentBlockStringValue
-import org.sangeet.kgraphql.schema.structure.getBlockStringIndentation
-import org.sangeet.kgraphql.schema.structure.printBlockString
+import com.apurebase.kgraphql.schema.structure.dedentBlockStringValue
+import com.apurebase.kgraphql.schema.structure.getBlockStringIndentation
+import com.apurebase.kgraphql.schema.structure.printBlockString
 import org.amshove.kluent.shouldBeEqualTo
 import org.amshove.kluent.shouldEqual
 import org.junit.jupiter.api.Test

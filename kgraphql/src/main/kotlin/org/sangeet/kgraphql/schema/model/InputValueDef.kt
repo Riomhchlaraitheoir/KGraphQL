@@ -1,4 +1,4 @@
-package org.sangeet.kgraphql.schema.model
+package com.apurebase.kgraphql.schema.model
 
 import kotlin.reflect.KClass
 import kotlin.reflect.KType

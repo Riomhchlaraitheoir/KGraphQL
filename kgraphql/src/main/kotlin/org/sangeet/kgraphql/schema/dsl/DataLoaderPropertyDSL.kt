@@ -1,9 +1,9 @@
-package org.sangeet.kgraphql.schema.dsl
+package com.apurebase.kgraphql.schema.dsl
 
-import org.sangeet.kgraphql.Context
-import org.sangeet.kgraphql.schema.model.FunctionWrapper
-import org.sangeet.kgraphql.schema.model.InputValueDef
-import org.sangeet.kgraphql.schema.model.PropertyDef
+import com.apurebase.kgraphql.Context
+import com.apurebase.kgraphql.schema.model.FunctionWrapper
+import com.apurebase.kgraphql.schema.model.InputValueDef
+import com.apurebase.kgraphql.schema.model.PropertyDef
 import nidomiro.kdataloader.BatchLoader
 import nidomiro.kdataloader.TimedAutoDispatcherDataLoaderOptions
 import nidomiro.kdataloader.factories.TimedAutoDispatcherDataLoaderFactory

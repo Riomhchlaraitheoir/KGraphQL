@@ -1,7 +1,7 @@
-package org.sangeet.kgraphql.demo
+package com.apurebase.kgraphql.demo
 
-import org.sangeet.kgraphql.integration.QueryTest
-import org.sangeet.kgraphql.server.NettyServer
+import com.apurebase.kgraphql.integration.QueryTest
+import com.apurebase.kgraphql.server.NettyServer
 
 /**
  * Demo application showing of tested schema, by default runs on localhost:8080

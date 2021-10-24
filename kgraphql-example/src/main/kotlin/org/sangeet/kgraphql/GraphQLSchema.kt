@@ -1,14 +1,14 @@
-package org.sangeet.kgraphql
+package com.apurebase.kgraphql
 
-import org.sangeet.kgraphql.dao.DatabaseFactory
-import org.sangeet.kgraphql.exception.NotAuthenticatedException
-import org.sangeet.kgraphql.exception.NotFoundException
-import org.sangeet.kgraphql.model.CountrySightings
-import org.sangeet.kgraphql.model.UFOSighting
-import org.sangeet.kgraphql.model.User
-import org.sangeet.kgraphql.model.users
-import org.sangeet.kgraphql.schema.dsl.SchemaBuilder
-import org.sangeet.kgraphql.service.UFOSightingService
+import com.apurebase.kgraphql.dao.DatabaseFactory
+import com.apurebase.kgraphql.exception.NotAuthenticatedException
+import com.apurebase.kgraphql.exception.NotFoundException
+import com.apurebase.kgraphql.model.CountrySightings
+import com.apurebase.kgraphql.model.UFOSighting
+import com.apurebase.kgraphql.model.User
+import com.apurebase.kgraphql.model.users
+import com.apurebase.kgraphql.schema.dsl.SchemaBuilder
+import com.apurebase.kgraphql.service.UFOSightingService
 import java.time.LocalDate
 
 fun SchemaBuilder.ufoSchema() {

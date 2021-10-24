@@ -1,12 +1,12 @@
-package org.sangeet.kgraphql.schema.execution
+package com.apurebase.kgraphql.schema.execution
 
-import org.sangeet.kgraphql.schema.directive.Directive
-import org.sangeet.kgraphql.schema.introspection.NotIntrospected
-import org.sangeet.kgraphql.schema.structure.Field
-import org.sangeet.kgraphql.schema.structure.Type
-import org.sangeet.kgraphql.schema.model.ast.ArgumentNodes
-import org.sangeet.kgraphql.schema.model.ast.SelectionNode
-import org.sangeet.kgraphql.schema.model.ast.VariableDefinitionNode
+import com.apurebase.kgraphql.schema.directive.Directive
+import com.apurebase.kgraphql.schema.introspection.NotIntrospected
+import com.apurebase.kgraphql.schema.structure.Field
+import com.apurebase.kgraphql.schema.structure.Type
+import com.apurebase.kgraphql.schema.model.ast.ArgumentNodes
+import com.apurebase.kgraphql.schema.model.ast.SelectionNode
+import com.apurebase.kgraphql.schema.model.ast.VariableDefinitionNode
 
 sealed class Execution {
     abstract val selectionNode: SelectionNode

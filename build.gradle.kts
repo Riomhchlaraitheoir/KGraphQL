@@ -14,7 +14,7 @@ allprojects {
 }
 
 subprojects {
-    group = "org.sangeet"
+    group = "com.apurebase"
     version = version
 
 }

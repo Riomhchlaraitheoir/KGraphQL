@@ -1,4 +1,4 @@
-package org.sangeet.kgraphql.model
+package com.apurebase.kgraphql.model
 
 
 data class CountrySightings(

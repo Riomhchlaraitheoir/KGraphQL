@@ -1,12 +1,12 @@
-package org.sangeet.kgraphql.specification.typesystem
+package com.apurebase.kgraphql.specification.typesystem
 
-import org.sangeet.kgraphql.Actor
-import org.sangeet.kgraphql.KGraphQL
-import org.sangeet.kgraphql.Specification
-import org.sangeet.kgraphql.expect
-import org.sangeet.kgraphql.schema.SchemaException
-import org.sangeet.kgraphql.schema.dsl.SchemaBuilder
-import org.sangeet.kgraphql.schema.execution.Executor
+import com.apurebase.kgraphql.Actor
+import com.apurebase.kgraphql.KGraphQL
+import com.apurebase.kgraphql.Specification
+import com.apurebase.kgraphql.expect
+import com.apurebase.kgraphql.schema.SchemaException
+import com.apurebase.kgraphql.schema.dsl.SchemaBuilder
+import com.apurebase.kgraphql.schema.execution.Executor
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.Matchers.equalTo
 import org.hamcrest.Matchers.greaterThan

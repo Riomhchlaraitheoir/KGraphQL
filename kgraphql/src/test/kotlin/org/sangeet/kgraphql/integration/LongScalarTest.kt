@@ -1,6 +1,6 @@
-package org.sangeet.kgraphql.integration
+package com.apurebase.kgraphql.integration
 
-import org.sangeet.kgraphql.*
+import com.apurebase.kgraphql.*
 import org.hamcrest.CoreMatchers.equalTo
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.jupiter.api.Test

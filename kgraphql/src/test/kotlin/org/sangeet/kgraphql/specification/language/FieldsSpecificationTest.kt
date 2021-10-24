@@ -1,10 +1,10 @@
-package org.sangeet.kgraphql.specification.language
+package com.apurebase.kgraphql.specification.language
 
-import org.sangeet.kgraphql.Actor
-import org.sangeet.kgraphql.Specification
-import org.sangeet.kgraphql.defaultSchema
-import org.sangeet.kgraphql.deserialize
-import org.sangeet.kgraphql.extract
+import com.apurebase.kgraphql.Actor
+import com.apurebase.kgraphql.Specification
+import com.apurebase.kgraphql.defaultSchema
+import com.apurebase.kgraphql.deserialize
+import com.apurebase.kgraphql.extract
 import org.hamcrest.CoreMatchers
 import org.hamcrest.MatcherAssert
 import org.junit.jupiter.api.Test

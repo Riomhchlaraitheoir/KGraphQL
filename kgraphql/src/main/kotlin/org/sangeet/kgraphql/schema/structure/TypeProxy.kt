@@ -1,10 +1,10 @@
-package org.sangeet.kgraphql.schema.structure
+package com.apurebase.kgraphql.schema.structure
 
-import org.sangeet.kgraphql.schema.introspection.TypeKind
-import org.sangeet.kgraphql.schema.introspection.__EnumValue
-import org.sangeet.kgraphql.schema.introspection.__Field
-import org.sangeet.kgraphql.schema.introspection.__InputValue
-import org.sangeet.kgraphql.schema.introspection.__Type
+import com.apurebase.kgraphql.schema.introspection.TypeKind
+import com.apurebase.kgraphql.schema.introspection.__EnumValue
+import com.apurebase.kgraphql.schema.introspection.__Field
+import com.apurebase.kgraphql.schema.introspection.__InputValue
+import com.apurebase.kgraphql.schema.introspection.__Type
 import kotlin.reflect.KClass
 
 open class TypeProxy(var proxied: Type) : Type {

@@ -1,7 +1,7 @@
-package org.sangeet.kgraphql.server
+package com.apurebase.kgraphql.server
 
-import org.sangeet.kgraphql.schema.DefaultSchema
-import org.sangeet.kgraphql.schema.Schema
+import com.apurebase.kgraphql.schema.DefaultSchema
+import com.apurebase.kgraphql.schema.Schema
 import io.netty.bootstrap.ServerBootstrap
 import io.netty.buffer.PooledByteBufAllocator
 import io.netty.channel.ChannelOption

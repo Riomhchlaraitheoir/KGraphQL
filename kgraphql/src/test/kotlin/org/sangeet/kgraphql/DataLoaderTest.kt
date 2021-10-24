@@ -1,8 +1,8 @@
-package org.sangeet.kgraphql
+package com.apurebase.kgraphql
 
-import org.sangeet.kgraphql.schema.DefaultSchema
-import org.sangeet.kgraphql.schema.dsl.SchemaBuilder
-import org.sangeet.kgraphql.schema.execution.Executor
+import com.apurebase.kgraphql.schema.DefaultSchema
+import com.apurebase.kgraphql.schema.dsl.SchemaBuilder
+import com.apurebase.kgraphql.schema.execution.Executor
 import kotlinx.coroutines.*
 import nidomiro.kdataloader.ExecutionResult
 import org.amshove.kluent.shouldBeEqualTo

@@ -1,6 +1,6 @@
-package org.sangeet.kgraphql.schema.execution
+package com.apurebase.kgraphql.schema.execution
 
-import org.sangeet.kgraphql.configuration.SchemaConfiguration
+import com.apurebase.kgraphql.configuration.SchemaConfiguration
 
 /**
  * If fields are null it'll fallback to the default from [SchemaConfiguration].

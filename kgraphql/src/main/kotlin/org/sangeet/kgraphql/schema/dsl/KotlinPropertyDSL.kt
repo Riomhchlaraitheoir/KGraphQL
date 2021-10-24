@@ -1,7 +1,7 @@
-package org.sangeet.kgraphql.schema.dsl
+package com.apurebase.kgraphql.schema.dsl
 
-import org.sangeet.kgraphql.Context
-import org.sangeet.kgraphql.schema.model.PropertyDef
+import com.apurebase.kgraphql.Context
+import com.apurebase.kgraphql.schema.model.PropertyDef
 import java.lang.IllegalArgumentException
 import kotlin.reflect.KProperty1
 

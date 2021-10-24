@@ -1,12 +1,12 @@
-package org.sangeet.kgraphql.specification.typesystem
+package com.apurebase.kgraphql.specification.typesystem
 
-import org.sangeet.kgraphql.KGraphQL
-import org.sangeet.kgraphql.Specification
-import org.sangeet.kgraphql.deserialize
-import org.sangeet.kgraphql.extract
-import org.sangeet.kgraphql.schema.model.ast.ValueNode
-import org.sangeet.kgraphql.GraphQLError
-import org.sangeet.kgraphql.schema.scalar.StringScalarCoercion
+import com.apurebase.kgraphql.KGraphQL
+import com.apurebase.kgraphql.Specification
+import com.apurebase.kgraphql.deserialize
+import com.apurebase.kgraphql.extract
+import com.apurebase.kgraphql.schema.model.ast.ValueNode
+import com.apurebase.kgraphql.GraphQLError
+import com.apurebase.kgraphql.schema.scalar.StringScalarCoercion
 import org.amshove.kluent.*
 import org.hamcrest.CoreMatchers.equalTo
 import org.hamcrest.MatcherAssert.assertThat

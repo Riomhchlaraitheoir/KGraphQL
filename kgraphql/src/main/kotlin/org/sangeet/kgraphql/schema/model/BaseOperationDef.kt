@@ -1,6 +1,6 @@
-package org.sangeet.kgraphql.schema.model
+package com.apurebase.kgraphql.schema.model
 
-import org.sangeet.kgraphql.Context
+import com.apurebase.kgraphql.Context
 import kotlin.reflect.KType
 
 abstract class BaseOperationDef<T, R>(

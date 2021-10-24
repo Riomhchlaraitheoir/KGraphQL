@@ -1,10 +1,10 @@
-package org.sangeet.kgraphql.schema.dsl.operations
+package com.apurebase.kgraphql.schema.dsl.operations
 
-import org.sangeet.kgraphql.Context
-import org.sangeet.kgraphql.schema.dsl.LimitedAccessItemDSL
-import org.sangeet.kgraphql.schema.dsl.ResolverDSL
-import org.sangeet.kgraphql.schema.model.FunctionWrapper
-import org.sangeet.kgraphql.schema.model.InputValueDef
+import com.apurebase.kgraphql.Context
+import com.apurebase.kgraphql.schema.dsl.LimitedAccessItemDSL
+import com.apurebase.kgraphql.schema.dsl.ResolverDSL
+import com.apurebase.kgraphql.schema.model.FunctionWrapper
+import com.apurebase.kgraphql.schema.model.InputValueDef
 import kotlin.reflect.KFunction
 import kotlin.reflect.KType
 

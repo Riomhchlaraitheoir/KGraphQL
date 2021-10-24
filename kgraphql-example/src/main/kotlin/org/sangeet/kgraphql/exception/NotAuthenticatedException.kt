@@ -1,3 +1,3 @@
-package org.sangeet.kgraphql.exception
+package com.apurebase.kgraphql.exception
 
 class NotAuthenticatedException : RuntimeException("There is no user authenticated")

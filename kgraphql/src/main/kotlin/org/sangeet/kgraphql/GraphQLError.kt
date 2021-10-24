@@ -1,8 +1,8 @@
-package org.sangeet.kgraphql
+package com.apurebase.kgraphql
 
-import org.sangeet.kgraphql.schema.model.ast.ASTNode
-import org.sangeet.kgraphql.schema.model.ast.Location.Companion.getLocation
-import org.sangeet.kgraphql.schema.model.ast.Source
+import com.apurebase.kgraphql.schema.model.ast.ASTNode
+import com.apurebase.kgraphql.schema.model.ast.Location.Companion.getLocation
+import com.apurebase.kgraphql.schema.model.ast.Source
 
 open class GraphQLError(
 

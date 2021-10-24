@@ -1,6 +1,6 @@
-package org.sangeet.kgraphql.schema.model.ast
+package com.apurebase.kgraphql.schema.model.ast
 
-import org.sangeet.kgraphql.schema.model.ast.TypeNode.NamedTypeNode
+import com.apurebase.kgraphql.schema.model.ast.TypeNode.NamedTypeNode
 
 sealed class SelectionNode(val parent: SelectionNode?): ASTNode() {
 

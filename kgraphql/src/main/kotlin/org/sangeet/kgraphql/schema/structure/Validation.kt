@@ -1,10 +1,10 @@
-package org.sangeet.kgraphql.schema.structure
+package com.apurebase.kgraphql.schema.structure
 
-import org.sangeet.kgraphql.ValidationException
-import org.sangeet.kgraphql.schema.SchemaException
-import org.sangeet.kgraphql.schema.introspection.TypeKind
-import org.sangeet.kgraphql.schema.model.ast.ArgumentNode
-import org.sangeet.kgraphql.schema.model.ast.SelectionNode.FieldNode
+import com.apurebase.kgraphql.ValidationException
+import com.apurebase.kgraphql.schema.SchemaException
+import com.apurebase.kgraphql.schema.introspection.TypeKind
+import com.apurebase.kgraphql.schema.model.ast.ArgumentNode
+import com.apurebase.kgraphql.schema.model.ast.SelectionNode.FieldNode
 import kotlin.reflect.KClass
 import kotlin.reflect.full.isSubclassOf
 

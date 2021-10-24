@@ -1,6 +1,6 @@
-package org.sangeet.kgraphql
+package com.apurebase.kgraphql
 
-import org.sangeet.kgraphql.schema.dsl.SchemaBuilder
+import com.apurebase.kgraphql.schema.dsl.SchemaBuilder
 import io.ktor.server.application.*
 import io.ktor.server.auth.*
 import io.ktor.http.*

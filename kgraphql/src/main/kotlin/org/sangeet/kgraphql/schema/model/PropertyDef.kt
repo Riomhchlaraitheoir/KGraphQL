@@ -1,6 +1,6 @@
-package org.sangeet.kgraphql.schema.model
+package com.apurebase.kgraphql.schema.model
 
-import org.sangeet.kgraphql.Context
+import com.apurebase.kgraphql.Context
 import nidomiro.kdataloader.factories.DataLoaderFactory
 import kotlin.reflect.KProperty1
 import kotlin.reflect.KType

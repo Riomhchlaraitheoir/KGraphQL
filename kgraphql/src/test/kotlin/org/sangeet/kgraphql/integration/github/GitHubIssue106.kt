@@ -1,7 +1,7 @@
-package org.sangeet.kgraphql.integration.github
+package com.apurebase.kgraphql.integration.github
 
-import org.sangeet.kgraphql.GraphQLError
-import org.sangeet.kgraphql.KGraphQL
+import com.apurebase.kgraphql.GraphQLError
+import com.apurebase.kgraphql.KGraphQL
 import org.amshove.kluent.invoking
 import org.amshove.kluent.shouldBeEqualTo
 import org.amshove.kluent.shouldThrow

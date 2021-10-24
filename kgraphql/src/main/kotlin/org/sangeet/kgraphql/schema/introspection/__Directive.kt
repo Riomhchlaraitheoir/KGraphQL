@@ -1,6 +1,6 @@
-package org.sangeet.kgraphql.schema.introspection
+package com.apurebase.kgraphql.schema.introspection
 
-import org.sangeet.kgraphql.schema.directive.DirectiveLocation
+import com.apurebase.kgraphql.schema.directive.DirectiveLocation
 
 
 interface __Directive : __Described {

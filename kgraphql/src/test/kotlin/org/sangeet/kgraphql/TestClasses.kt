@@ -1,7 +1,7 @@
-package org.sangeet.kgraphql
+package com.apurebase.kgraphql
 
-import org.sangeet.kgraphql.schema.model.ast.ValueNode
-import org.sangeet.kgraphql.schema.scalar.StringScalarCoercion
+import com.apurebase.kgraphql.schema.model.ast.ValueNode
+import com.apurebase.kgraphql.schema.scalar.StringScalarCoercion
 
 
 class Film(val id : Id, val year: Int, val title: String, val director: Director, val type: FilmType = FilmType.FULL_LENGTH)

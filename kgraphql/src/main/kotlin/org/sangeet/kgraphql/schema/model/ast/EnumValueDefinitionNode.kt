@@ -1,6 +1,6 @@
-package org.sangeet.kgraphql.schema.model.ast
+package com.apurebase.kgraphql.schema.model.ast
 
-import org.sangeet.kgraphql.schema.model.ast.ValueNode.StringValueNode
+import com.apurebase.kgraphql.schema.model.ast.ValueNode.StringValueNode
 
 data class EnumValueDefinitionNode(
     override val loc: Location?,

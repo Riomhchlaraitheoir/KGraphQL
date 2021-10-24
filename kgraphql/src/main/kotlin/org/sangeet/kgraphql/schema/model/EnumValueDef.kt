@@ -1,6 +1,6 @@
-package org.sangeet.kgraphql.schema.model
+package com.apurebase.kgraphql.schema.model
 
-import org.sangeet.kgraphql.schema.structure.EnumValue
+import com.apurebase.kgraphql.schema.structure.EnumValue
 
 
 class EnumValueDef<T : Enum<T>>(

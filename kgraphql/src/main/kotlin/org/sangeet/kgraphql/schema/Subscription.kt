@@ -1,4 +1,4 @@
-package org.sangeet.kgraphql.schema
+package com.apurebase.kgraphql.schema
 
 interface Subscription {
     fun request(n: Long)

@@ -1,4 +1,4 @@
-package org.sangeet.kgraphql.dao
+package com.apurebase.kgraphql.dao
 
 import java.io.BufferedReader
 import java.io.InputStream

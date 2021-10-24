@@ -1,9 +1,9 @@
-package org.sangeet.kgraphql.specification.introspection
+package com.apurebase.kgraphql.specification.introspection
 
-import org.sangeet.kgraphql.Context
-import org.sangeet.kgraphql.defaultSchema
-import org.sangeet.kgraphql.deserialize
-import org.sangeet.kgraphql.extract
+import com.apurebase.kgraphql.Context
+import com.apurebase.kgraphql.defaultSchema
+import com.apurebase.kgraphql.deserialize
+import com.apurebase.kgraphql.extract
 import org.hamcrest.CoreMatchers
 import org.hamcrest.MatcherAssert
 import org.junit.jupiter.api.Test

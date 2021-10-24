@@ -1,9 +1,9 @@
-package org.sangeet.kgraphql.schema
+package com.apurebase.kgraphql.schema
 
-import org.sangeet.kgraphql.Context
-import org.sangeet.kgraphql.configuration.SchemaConfiguration
-import org.sangeet.kgraphql.schema.execution.ExecutionOptions
-import org.sangeet.kgraphql.schema.introspection.__Schema
+import com.apurebase.kgraphql.Context
+import com.apurebase.kgraphql.configuration.SchemaConfiguration
+import com.apurebase.kgraphql.schema.execution.ExecutionOptions
+import com.apurebase.kgraphql.schema.introspection.__Schema
 import kotlinx.coroutines.runBlocking
 import org.intellij.lang.annotations.Language
 

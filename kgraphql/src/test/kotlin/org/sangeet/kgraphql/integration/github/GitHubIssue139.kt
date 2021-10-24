@@ -1,8 +1,8 @@
-package org.sangeet.kgraphql.integration.github
+package com.apurebase.kgraphql.integration.github
 
-import org.sangeet.kgraphql.KGraphQL
-import org.sangeet.kgraphql.deserialize
-import org.sangeet.kgraphql.schema.dsl.SchemaBuilder
+import com.apurebase.kgraphql.KGraphQL
+import com.apurebase.kgraphql.deserialize
+import com.apurebase.kgraphql.schema.dsl.SchemaBuilder
 import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 

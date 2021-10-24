@@ -1,4 +1,4 @@
-package org.sangeet.kgraphql.server
+package com.apurebase.kgraphql.server
 
 import io.netty.channel.ChannelInitializer
 import io.netty.channel.socket.SocketChannel

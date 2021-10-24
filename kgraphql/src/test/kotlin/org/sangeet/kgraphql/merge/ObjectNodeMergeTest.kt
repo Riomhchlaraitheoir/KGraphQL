@@ -1,9 +1,9 @@
-package org.sangeet.kgraphql.merge
+package com.apurebase.kgraphql.merge
 
 import com.fasterxml.jackson.databind.JsonNode
 import com.fasterxml.jackson.databind.node.JsonNodeFactory
-import org.sangeet.kgraphql.expect
-import org.sangeet.kgraphql.schema.execution.merge
+import com.apurebase.kgraphql.expect
+import com.apurebase.kgraphql.schema.execution.merge
 import org.hamcrest.CoreMatchers.equalTo
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.jupiter.api.Test

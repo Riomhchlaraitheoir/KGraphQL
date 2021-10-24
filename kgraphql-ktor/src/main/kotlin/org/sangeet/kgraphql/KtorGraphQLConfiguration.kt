@@ -1,6 +1,6 @@
-package org.sangeet.kgraphql
+package com.apurebase.kgraphql
 
-import org.sangeet.kgraphql.configuration.PluginConfiguration
+import com.apurebase.kgraphql.configuration.PluginConfiguration
 
 class KtorGraphQLConfiguration(
     val playground: Boolean,

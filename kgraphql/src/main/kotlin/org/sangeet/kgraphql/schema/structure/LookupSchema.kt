@@ -1,9 +1,9 @@
-package org.sangeet.kgraphql.schema.structure
+package com.apurebase.kgraphql.schema.structure
 
-import org.sangeet.kgraphql.isIterable
-import org.sangeet.kgraphql.request.TypeReference
-import org.sangeet.kgraphql.schema.Schema
-import org.sangeet.kgraphql.schema.introspection.TypeKind
+import com.apurebase.kgraphql.isIterable
+import com.apurebase.kgraphql.request.TypeReference
+import com.apurebase.kgraphql.schema.Schema
+import com.apurebase.kgraphql.schema.introspection.TypeKind
 import kotlin.reflect.KClass
 import kotlin.reflect.KType
 import kotlin.reflect.jvm.jvmErasure

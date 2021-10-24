@@ -1,8 +1,8 @@
-package org.sangeet.kgraphql.specification.language
+package com.apurebase.kgraphql.specification.language
 
-import org.sangeet.kgraphql.*
-import org.sangeet.kgraphql.Actor
-import org.sangeet.kgraphql.GraphQLError
+import com.apurebase.kgraphql.*
+import com.apurebase.kgraphql.Actor
+import com.apurebase.kgraphql.GraphQLError
 import org.amshove.kluent.invoking
 import org.amshove.kluent.shouldThrow
 import org.amshove.kluent.withMessage

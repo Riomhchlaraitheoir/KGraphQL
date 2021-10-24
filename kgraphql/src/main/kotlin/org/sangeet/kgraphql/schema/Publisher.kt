@@ -1,4 +1,4 @@
-package org.sangeet.kgraphql.schema
+package com.apurebase.kgraphql.schema
 
 interface Publisher {
     fun subscribe(subscription: String, subscriber: Subscriber)

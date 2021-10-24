@@ -1,6 +1,6 @@
-package org.sangeet.kgraphql
+package com.apurebase.kgraphql
 
-import org.sangeet.kgraphql.schema.dsl.SchemaConfigurationDSL
+import com.apurebase.kgraphql.schema.dsl.SchemaConfigurationDSL
 
 class KtorConfigurationDSL {
     /**

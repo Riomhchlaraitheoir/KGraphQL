@@ -1,9 +1,9 @@
-package org.sangeet.kgraphql.specification.typesystem
+package com.apurebase.kgraphql.specification.typesystem
 
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
-import org.sangeet.kgraphql.KGraphQL
-import org.sangeet.kgraphql.deserialize
-import org.sangeet.kgraphql.extract
+import com.apurebase.kgraphql.KGraphQL
+import com.apurebase.kgraphql.deserialize
+import com.apurebase.kgraphql.extract
 import org.hamcrest.CoreMatchers.equalTo
 import org.hamcrest.CoreMatchers.nullValue
 import org.hamcrest.CoreMatchers.startsWith

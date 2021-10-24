@@ -1,7 +1,7 @@
-package org.sangeet.kgraphql.dao
+package com.apurebase.kgraphql.dao
 
-import org.sangeet.kgraphql.dao.CSVDataImporter.importFromCsv
-import org.sangeet.kgraphql.model.UFOSightings
+import com.apurebase.kgraphql.dao.CSVDataImporter.importFromCsv
+import com.apurebase.kgraphql.model.UFOSightings
 import com.zaxxer.hikari.HikariConfig
 import com.zaxxer.hikari.HikariDataSource
 import org.jetbrains.exposed.sql.Database

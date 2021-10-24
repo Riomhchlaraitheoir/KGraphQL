@@ -1,12 +1,12 @@
-package org.sangeet.kgraphql.schema.directive
+package com.apurebase.kgraphql.schema.directive
 
-import org.sangeet.kgraphql.schema.directive.DirectiveLocation.FIELD
-import org.sangeet.kgraphql.schema.directive.DirectiveLocation.FRAGMENT_SPREAD
-import org.sangeet.kgraphql.schema.directive.DirectiveLocation.INLINE_FRAGMENT
-import org.sangeet.kgraphql.schema.introspection.__Directive
-import org.sangeet.kgraphql.schema.introspection.__InputValue
-import org.sangeet.kgraphql.schema.model.FunctionWrapper
-import org.sangeet.kgraphql.schema.structure.InputValue
+import com.apurebase.kgraphql.schema.directive.DirectiveLocation.FIELD
+import com.apurebase.kgraphql.schema.directive.DirectiveLocation.FRAGMENT_SPREAD
+import com.apurebase.kgraphql.schema.directive.DirectiveLocation.INLINE_FRAGMENT
+import com.apurebase.kgraphql.schema.introspection.__Directive
+import com.apurebase.kgraphql.schema.introspection.__InputValue
+import com.apurebase.kgraphql.schema.model.FunctionWrapper
+import com.apurebase.kgraphql.schema.structure.InputValue
 
 /**
  * Directives provide a way to describe alternate runtime execution and type validation behavior in a GraphQL document.

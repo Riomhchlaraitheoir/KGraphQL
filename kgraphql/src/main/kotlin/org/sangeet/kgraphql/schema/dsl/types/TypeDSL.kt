@@ -1,12 +1,12 @@
-package org.sangeet.kgraphql.schema.dsl.types
+package com.apurebase.kgraphql.schema.dsl.types
 
-import org.sangeet.kgraphql.defaultKQLTypeName
-import org.sangeet.kgraphql.schema.SchemaException
-import org.sangeet.kgraphql.schema.dsl.*
-import org.sangeet.kgraphql.schema.model.FunctionWrapper
-import org.sangeet.kgraphql.schema.model.PropertyDef
-import org.sangeet.kgraphql.schema.model.Transformation
-import org.sangeet.kgraphql.schema.model.TypeDef
+import com.apurebase.kgraphql.defaultKQLTypeName
+import com.apurebase.kgraphql.schema.SchemaException
+import com.apurebase.kgraphql.schema.dsl.*
+import com.apurebase.kgraphql.schema.model.FunctionWrapper
+import com.apurebase.kgraphql.schema.model.PropertyDef
+import com.apurebase.kgraphql.schema.model.Transformation
+import com.apurebase.kgraphql.schema.model.TypeDef
 import kotlin.reflect.KClass
 import kotlin.reflect.KProperty1
 import kotlin.reflect.typeOf

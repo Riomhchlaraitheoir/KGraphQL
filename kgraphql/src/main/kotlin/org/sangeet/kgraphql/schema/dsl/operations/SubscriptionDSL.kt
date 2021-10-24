@@ -1,11 +1,11 @@
-package org.sangeet.kgraphql.schema.dsl.operations
+package com.apurebase.kgraphql.schema.dsl.operations
 
-import org.sangeet.kgraphql.schema.Publisher
-import org.sangeet.kgraphql.schema.SchemaException
-import org.sangeet.kgraphql.schema.Subscriber
-import org.sangeet.kgraphql.schema.Subscription
-import org.sangeet.kgraphql.schema.model.FunctionWrapper
-import org.sangeet.kgraphql.schema.model.SubscriptionDef
+import com.apurebase.kgraphql.schema.Publisher
+import com.apurebase.kgraphql.schema.SchemaException
+import com.apurebase.kgraphql.schema.Subscriber
+import com.apurebase.kgraphql.schema.Subscription
+import com.apurebase.kgraphql.schema.model.FunctionWrapper
+import com.apurebase.kgraphql.schema.model.SubscriptionDef
 import com.fasterxml.jackson.databind.ObjectWriter
 import kotlin.reflect.full.isSubtypeOf
 import kotlin.reflect.full.memberProperties

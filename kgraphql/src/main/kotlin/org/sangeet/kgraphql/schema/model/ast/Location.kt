@@ -1,4 +1,4 @@
-package org.sangeet.kgraphql.schema.model.ast
+package com.apurebase.kgraphql.schema.model.ast
 
 /**
  * Contains a range of UTF-8 character offsets and token references that

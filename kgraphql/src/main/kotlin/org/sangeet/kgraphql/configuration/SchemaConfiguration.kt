@@ -1,6 +1,6 @@
-package org.sangeet.kgraphql.configuration
+package com.apurebase.kgraphql.configuration
 
-import org.sangeet.kgraphql.schema.execution.Executor
+import com.apurebase.kgraphql.schema.execution.Executor
 import com.fasterxml.jackson.databind.ObjectMapper
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlin.reflect.KClass

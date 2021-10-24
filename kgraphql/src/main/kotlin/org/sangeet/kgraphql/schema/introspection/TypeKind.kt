@@ -1,4 +1,4 @@
-package org.sangeet.kgraphql.schema.introspection
+package com.apurebase.kgraphql.schema.introspection
 
 
 enum class TypeKind {

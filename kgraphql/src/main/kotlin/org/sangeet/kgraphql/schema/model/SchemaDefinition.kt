@@ -1,6 +1,6 @@
-package org.sangeet.kgraphql.schema.model
+package com.apurebase.kgraphql.schema.model
 
-import org.sangeet.kgraphql.schema.directive.Directive
+import com.apurebase.kgraphql.schema.directive.Directive
 
 /**
  * [SchemaDefinition] represents unstructured schema components

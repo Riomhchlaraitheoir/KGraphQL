@@ -1,4 +1,4 @@
-package org.sangeet.kgraphql.model
+package com.apurebase.kgraphql.model
 
 import io.ktor.server.auth.Principal
 

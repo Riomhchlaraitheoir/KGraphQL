@@ -1,11 +1,11 @@
-package org.sangeet.kgraphql.specification.language
+package com.apurebase.kgraphql.specification.language
 
-import org.sangeet.kgraphql.*
-import org.sangeet.kgraphql.schema.DefaultSchema
-import org.sangeet.kgraphql.schema.SchemaException
-import org.sangeet.kgraphql.schema.dsl.operations.subscribe
-import org.sangeet.kgraphql.schema.dsl.operations.unsubscribe
-import org.sangeet.kgraphql.schema.execution.Executor
+import com.apurebase.kgraphql.*
+import com.apurebase.kgraphql.schema.DefaultSchema
+import com.apurebase.kgraphql.schema.SchemaException
+import com.apurebase.kgraphql.schema.dsl.operations.subscribe
+import com.apurebase.kgraphql.schema.dsl.operations.unsubscribe
+import com.apurebase.kgraphql.schema.execution.Executor
 import org.amshove.kluent.*
 import org.junit.jupiter.api.Test
 

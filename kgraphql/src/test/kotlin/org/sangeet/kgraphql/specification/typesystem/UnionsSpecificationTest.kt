@@ -1,11 +1,11 @@
-package org.sangeet.kgraphql.specification.typesystem
+package com.apurebase.kgraphql.specification.typesystem
 
-import org.sangeet.kgraphql.*
-import org.sangeet.kgraphql.integration.BaseSchemaTest
-import org.sangeet.kgraphql.schema.SchemaException
-import org.sangeet.kgraphql.GraphQLError
-import org.sangeet.kgraphql.helpers.getFields
-import org.sangeet.kgraphql.schema.execution.Execution
+import com.apurebase.kgraphql.*
+import com.apurebase.kgraphql.integration.BaseSchemaTest
+import com.apurebase.kgraphql.schema.SchemaException
+import com.apurebase.kgraphql.GraphQLError
+import com.apurebase.kgraphql.helpers.getFields
+import com.apurebase.kgraphql.schema.execution.Execution
 import org.amshove.kluent.*
 import org.hamcrest.CoreMatchers
 import org.hamcrest.MatcherAssert

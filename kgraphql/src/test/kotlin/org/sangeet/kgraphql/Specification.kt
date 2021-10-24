@@ -1,4 +1,4 @@
-package org.sangeet.kgraphql
+package com.apurebase.kgraphql
 
 /**
  * Denotes test for specific part of GraphQL specification

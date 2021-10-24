@@ -1,7 +1,7 @@
-package org.sangeet.kgraphql.server
+package com.apurebase.kgraphql.server
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import org.sangeet.kgraphql.schema.DefaultSchema
+import com.apurebase.kgraphql.schema.DefaultSchema
 import io.netty.buffer.Unpooled
 import io.netty.channel.ChannelFutureListener
 import io.netty.channel.ChannelHandler

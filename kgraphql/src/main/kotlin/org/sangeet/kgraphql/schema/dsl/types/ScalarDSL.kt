@@ -1,8 +1,8 @@
-package org.sangeet.kgraphql.schema.dsl.types
+package com.apurebase.kgraphql.schema.dsl.types
 
-import org.sangeet.kgraphql.defaultKQLTypeName
-import org.sangeet.kgraphql.schema.dsl.ItemDSL
-import org.sangeet.kgraphql.schema.scalar.ScalarCoercion
+import com.apurebase.kgraphql.defaultKQLTypeName
+import com.apurebase.kgraphql.schema.dsl.ItemDSL
+import com.apurebase.kgraphql.schema.scalar.ScalarCoercion
 import kotlin.reflect.KClass
 
 

@@ -1,10 +1,10 @@
-package org.sangeet.kgraphql.service
+package com.apurebase.kgraphql.service
 
-import org.sangeet.kgraphql.dao.DatabaseFactory.dbQuery
-import org.sangeet.kgraphql.dao.execAndMap
-import org.sangeet.kgraphql.model.CountrySightings
-import org.sangeet.kgraphql.model.UFOSighting
-import org.sangeet.kgraphql.model.UFOSightings
+import com.apurebase.kgraphql.dao.DatabaseFactory.dbQuery
+import com.apurebase.kgraphql.dao.execAndMap
+import com.apurebase.kgraphql.model.CountrySightings
+import com.apurebase.kgraphql.model.UFOSighting
+import com.apurebase.kgraphql.model.UFOSightings
 import org.jetbrains.exposed.sql.ResultRow
 import org.jetbrains.exposed.sql.insert
 import org.jetbrains.exposed.sql.select

@@ -1,5 +1,5 @@
 
-package org.sangeet.kgraphql.schema.introspection
+package com.apurebase.kgraphql.schema.introspection
 
 /**
  * GraphQL introspection system defines __Type to represent all of TypeKinds

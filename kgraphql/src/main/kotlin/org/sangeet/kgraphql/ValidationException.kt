@@ -1,5 +1,5 @@
-package org.sangeet.kgraphql
+package com.apurebase.kgraphql
 
-import org.sangeet.kgraphql.schema.model.ast.ASTNode
+import com.apurebase.kgraphql.schema.model.ast.ASTNode
 
 class ValidationException(message: String, nodes: List<ASTNode>? = null): GraphQLError(message, nodes = nodes)

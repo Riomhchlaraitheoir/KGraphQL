@@ -1,4 +1,4 @@
-package org.sangeet.kgraphql.schema.structure
+package com.apurebase.kgraphql.schema.structure
 
 /**
  * Produces the value of a block string from its parsed raw value, similar to
