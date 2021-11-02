@@ -4,17 +4,20 @@ import com.apurebase.kgraphql.schema.dsl.ItemDSL
 import kotlin.reflect.KClass
 
 
-class UnionTypeDSL() : ItemDSL() {
+class UnionTypeDSL<T: Any>() : ItemDSL() {
 
-    internal val possibleTypes = mutableSetOf<KClass<*>>()
+    internal val possibleTypes = mutableSetOf<SubType<*>>()
 
     var subTypeBlock: TypeDSL<*>.() -> Unit = {}
 
-    fun <T : Any>type(kClass : KClass<T>){
-        possibleTypes.add(kClass)
+    fun <S : T> type(kClass : KClass<S>, block: TypeDSL<S>.() -> Unit = {}){
+        possibleTypes.removeIf { it.type == kClass }
+        possibleTypes.add(SubType(kClass, block))
     }
 
-    inline fun <reified T : Any>type(){
-        type(T::class)
+    inline fun <reified S : T>type(noinline block: TypeDSL<S>.() -> Unit = {}){
+        type(S::class, block)
     }
+    
+    internal data class SubType<S: Any>(val type: KClass<S>, val def: TypeDSL<S>.() -> Unit = {})
 }

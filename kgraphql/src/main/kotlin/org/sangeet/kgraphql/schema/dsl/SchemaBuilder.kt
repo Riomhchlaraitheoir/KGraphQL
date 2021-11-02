@@ -185,22 +185,36 @@ class SchemaBuilder internal constructor() {
     // UNION
     //================================================================================
 
-    fun unionType(name: String, block: UnionTypeDSL.() -> Unit): TypeID {
-        val union = UnionTypeDSL().apply(block)
-        model.addUnion(TypeDef.Union(name, union.possibleTypes, union.description))
+    fun unionType(name: String, block: UnionTypeDSL<*>.() -> Unit): TypeID {
+        val union = UnionTypeDSL<Any>().apply(block)
+        union.possibleTypes.forEach { subType ->
+          type(subType)
+        }
+        model.addUnion(TypeDef.Union(name, union.possibleTypes.mapTo(mutableSetOf(), UnionTypeDSL.SubType<*>::type), union.description))
         return TypeID(name)
     }
 
-    inline fun <reified T: Any> unionType(noinline block: UnionTypeDSL.() -> Unit = {}): TypeID {
-        if (!T::class.isSealed) throw SchemaException("Can't generate a union type out of a non sealed class. '${T::class.simpleName}'")
-
-        return unionType(T::class.simpleName!!) {
-            block()
-            T::class.sealedSubclasses.forEach {
-                type(it, subTypeBlock) // <-- Adds to schema definition
-                type(it) // <-- Adds to possible union type
-            }
+    fun <T: Any> sealedUnionType(sealedClass: KClass<T>, block: UnionTypeDSL<T>.() -> Unit): TypeID {
+        val name = sealedClass.simpleName!!
+        if (!sealedClass.isSealed) throw SchemaException("Can't generate a union type out of a non sealed class. '$name'")
+        val union = UnionTypeDSL<T>()
+        for (subclass in sealedClass.sealedSubclasses) {
+            union.type(subclass)
         }
+        union.block()
+        union.possibleTypes.forEach { subType ->
+          type(subType)
+        }
+        model.addUnion(TypeDef.Union(name, union.possibleTypes.mapTo(mutableSetOf(), UnionTypeDSL.SubType<*>::type), union.description))
+        return TypeID(name)
+    }
+
+    private fun <T: Any> type(subType: UnionTypeDSL.SubType<T>) {
+        type(subType.type, subType.def)
+    }
+
+    inline fun <reified T: Any> unionType(noinline block: UnionTypeDSL<T>.() -> Unit = {}): TypeID {
+        return sealedUnionType(T::class, block)
     }
 
     //================================================================================

@@ -1,7 +1,9 @@
 @file:Suppress("UNCHECKED_CAST")
+@file:OptIn(ExperimentalReflectionOnLambdas::class)
 
 package com.apurebase.kgraphql.schema.model
 
+import com.apurebase.kgraphql.ExecutionScope
 import com.apurebase.kgraphql.schema.Publisher
 import com.apurebase.kgraphql.schema.SchemaException
 import com.apurebase.kgraphql.schema.Subscriber
@@ -12,6 +14,7 @@ import kotlin.reflect.KType
 import kotlin.reflect.full.callSuspend
 import kotlin.reflect.full.extensionReceiverParameter
 import kotlin.reflect.full.valueParameters
+import kotlin.reflect.jvm.ExperimentalReflectionOnLambdas
 import kotlin.reflect.jvm.jvmErasure
 import kotlin.reflect.jvm.reflect
 
@@ -29,45 +32,45 @@ interface FunctionWrapper <T> : Publisher {
         fun <T> on (function : KFunction<T>) : FunctionWrapper<T>
                 = ArityN(function)
 
-        fun <T> on (function : suspend () -> T) : FunctionWrapper<T>
+        fun <T> on (function : suspend ExecutionScope.() -> T) : FunctionWrapper<T>
             = ArityZero(function)
 
-        fun <T, R> on (function : suspend (R) -> T)
+        fun <T, R> on (function : suspend ExecutionScope.(R) -> T)
             = ArityOne(function, false)
 
-        fun <T, R> on (function : suspend (R) -> T, hasReceiver: Boolean = false)
+        fun <T, R> on (function : suspend ExecutionScope.(R) -> T, hasReceiver: Boolean = false)
             = ArityOne(function, hasReceiver)
 
-        fun <T, R, E> on (function : suspend (R, E) -> T, hasReceiver: Boolean = false)
+        fun <T, R, E> on (function : suspend ExecutionScope.(R, E) -> T, hasReceiver: Boolean = false)
             = ArityTwo(function, hasReceiver)
 
-        fun <T, R, E, W> on (function : suspend (R, E, W) -> T, hasReceiver: Boolean = false)
+        fun <T, R, E, W> on (function : suspend ExecutionScope.(R, E, W) -> T, hasReceiver: Boolean = false)
             = ArityThree(function, hasReceiver)
 
-        fun <T, R, E, W, Q> on (function : suspend (R, E, W, Q) -> T, hasReceiver: Boolean = false)
+        fun <T, R, E, W, Q> on (function : suspend ExecutionScope.(R, E, W, Q) -> T, hasReceiver: Boolean = false)
             = ArityFour(function, hasReceiver)
 
-        fun <T, R, E, W, Q, A> on (function : suspend (R, E, W, Q, A) -> T, hasReceiver: Boolean = false)
+        fun <T, R, E, W, Q, A> on (function : suspend ExecutionScope.(R, E, W, Q, A) -> T, hasReceiver: Boolean = false)
             = ArityFive(function, hasReceiver)
 
-        fun <T, R, E, W, Q, A, S> on (function : suspend (R, E, W, Q, A, S) -> T, hasReceiver: Boolean = false)
+        fun <T, R, E, W, Q, A, S> on (function : suspend ExecutionScope.(R, E, W, Q, A, S) -> T, hasReceiver: Boolean = false)
             = AritySix(function, hasReceiver)
 
-        fun <T, R, E, W, Q, A, S, G> on (function : suspend (R, E, W, Q, A, S, G) -> T, hasReceiver: Boolean = false)
+        fun <T, R, E, W, Q, A, S, G> on (function : suspend ExecutionScope.(R, E, W, Q, A, S, G) -> T, hasReceiver: Boolean = false)
             = AritySeven(function, hasReceiver)
 
-        fun <T, R, E, W, Q, A, S, G, H> on (function : suspend (R, E, W, Q, A, S, G, H) -> T, hasReceiver: Boolean = false)
+        fun <T, R, E, W, Q, A, S, G, H> on (function : suspend ExecutionScope.(R, E, W, Q, A, S, G, H) -> T, hasReceiver: Boolean = false)
             = ArityEight(function, hasReceiver)
 
-        fun <T, R, E, W, Q, A, S, G, H, J> on (function : suspend (R, E, W, Q, A, S, G, H, J) -> T, hasReceiver: Boolean = false)
+        fun <T, R, E, W, Q, A, S, G, H, J> on (function : suspend ExecutionScope.(R, E, W, Q, A, S, G, H, J) -> T, hasReceiver: Boolean = false)
             = ArityNine(function, hasReceiver)
 
     }
 
     val kFunction: KFunction<T>
 
-    suspend fun invoke(vararg args: Any?) : T?
-    suspend fun invoke(args: List<Any?>, subscriptionArgs: List<String>, objectWriter: ObjectWriter) : T?
+    suspend fun invoke(scope: ExecutionScope, vararg args: Any?) : T?
+    suspend fun invoke(scope: ExecutionScope, args: List<Any?>, subscriptionArgs: List<String>, objectWriter: ObjectWriter) : T?
 
     fun arity() : Int
 
@@ -93,10 +96,6 @@ interface FunctionWrapper <T> : Publisher {
         }
 
         override val argumentsDescriptor: Map<String, KType> by lazy { createArgumentsDescriptor() }
-
-        override suspend fun invoke(vararg args: Any?) : T? {
-            return invoke(*args)
-        }
     }
 
     /**
@@ -112,7 +111,7 @@ interface FunctionWrapper <T> : Publisher {
         override fun unsubscribe(subscription: String) {
             subscribers.remove(subscription)
         }
-        override suspend fun invoke(args: List<Any?>, subscriptionArgs: List<String>, objectWriter: ObjectWriter): T? {
+        override suspend fun invoke(scope: ExecutionScope, args: List<Any?>, subscriptionArgs: List<String>, objectWriter: ObjectWriter): T? {
             TODO("not needed")
         }
 
@@ -125,18 +124,20 @@ interface FunctionWrapper <T> : Publisher {
         override val hasReceiver: Boolean
             get() = kFunction.extensionReceiverParameter != null
 
-        override suspend fun invoke(vararg args: Any?): T? {
-            return kFunction.callSuspend(*args)
+        override suspend fun invoke(scope: ExecutionScope, vararg args: Any?): T? {
+            return if (kFunction.extensionReceiverParameter == null)
+                kFunction.callSuspend(*args)
+            else kFunction.callSuspend(scope, *args)
         }
     }
 
-    class ArityZero<T>(val implementation : suspend ()-> T, override val hasReceiver: Boolean = false ) : Base<T>() {
+    class ArityZero<T>(val implementation : suspend ExecutionScope.()-> T, override val hasReceiver: Boolean = false ) : Base<T>() {
         override fun unsubscribe(subscription: String) {
             subscribers.remove(subscription)
         }
 
-        override suspend fun invoke(args: List<Any?>, subscriptionArgs: List<String>, objectWriter: ObjectWriter): T? {
-            TODO("not needed")
+        override suspend fun invoke(scope: ExecutionScope, args: List<Any?>, subscriptionArgs: List<String>, objectWriter: ObjectWriter): T? {
+            TODO("not needed") // TODO: inspect this
         }
         override fun subscribe(subscription: String, subscriber: Subscriber) {
             subscribers[subscription] = subscriber
@@ -148,7 +149,7 @@ interface FunctionWrapper <T> : Publisher {
 
         override fun arity(): Int = 0
 
-        override suspend fun invoke(vararg args: Any?): T? {
+        override suspend fun invoke(scope: ExecutionScope, vararg args: Any?): T? {
             if (args.isNotEmpty()) {
                 val e = IllegalArgumentException("This function does not accept arguments")
                 subscribers.forEach{
@@ -156,7 +157,7 @@ interface FunctionWrapper <T> : Publisher {
                 }
                 throw e
             }
-            val t = implementation()
+            val t = implementation(scope)
             subscribers.forEach{
                 it.value?.onNext(t)
             }
@@ -165,14 +166,14 @@ interface FunctionWrapper <T> : Publisher {
     }
 
     class ArityOne<T, R>(
-        val implementation : suspend (R)-> T, override val hasReceiver: Boolean
+        val implementation : suspend ExecutionScope.(R)-> T, override val hasReceiver: Boolean
     ) : Base<T>() {
         override fun unsubscribe(subscription: String) {
             subscribers.remove(subscription)
         }
-        override suspend fun invoke(args: List<Any?>, subscriptionArgs: List<String>, objectWriter: ObjectWriter): T? {
+        override suspend fun invoke(scope: ExecutionScope, args: List<Any?>, subscriptionArgs: List<String>, objectWriter: ObjectWriter): T? {
             if(args.size == arity()){
-                val t = implementation(args[0] as R)
+                val t = implementation(scope, args[0] as R)
                 val subscription = args[0] as String
                 subscribers[subscription]?.setArgs(subscriptionArgs.toTypedArray())
                 subscribers[subscription]?.setObjectWriter(objectWriter)
@@ -195,9 +196,9 @@ interface FunctionWrapper <T> : Publisher {
 
         override fun arity(): Int = 1
 
-        override suspend fun invoke(vararg args: Any?): T? {
+        override suspend fun invoke(scope: ExecutionScope, vararg args: Any?): T? {
             if(args.size == arity()){
-                val t = implementation(args[0] as R)
+                val t = implementation(scope, args[0] as R)
                 subscribers.forEach{
                     it.value?.onNext(t)
                 }
@@ -213,13 +214,13 @@ interface FunctionWrapper <T> : Publisher {
     }
 
     class ArityTwo<T, R, E>(
-        val implementation : suspend (R, E)-> T,
+        val implementation : suspend ExecutionScope.(R, E)-> T,
         override val hasReceiver: Boolean
     ) : Base<T>() {
         override fun unsubscribe(subscription: String) {
             subscribers.remove(subscription)
         }
-        override suspend fun invoke(args: List<Any?>, subscriptionArgs: List<String>, objectWriter: ObjectWriter): T? {
+        override suspend fun invoke(scope: ExecutionScope, args: List<Any?>, subscriptionArgs: List<String>, objectWriter: ObjectWriter): T? {
             TODO("not needed")
         }
         override fun subscribe(subscription: String, subscriber: Subscriber) {
@@ -233,9 +234,9 @@ interface FunctionWrapper <T> : Publisher {
 
         override fun arity(): Int = 2
 
-        override suspend fun invoke(vararg args: Any?): T? {
+        override suspend fun invoke(scope: ExecutionScope, vararg args: Any?): T? {
             if(args.size == arity()){
-                val t = implementation(args[0] as R, args[1] as E)
+                val t = implementation(scope, args[0] as R, args[1] as E)
                 subscribers.forEach{
                     it.value?.onNext(t)
                 }
@@ -251,12 +252,12 @@ interface FunctionWrapper <T> : Publisher {
     }
 
     class ArityThree<T, R, E, W>(
-        val implementation : suspend (R, E, W)-> T, override val hasReceiver: Boolean
+        val implementation : suspend ExecutionScope.(R, E, W)-> T, override val hasReceiver: Boolean
     ) : Base<T>() {
         override fun unsubscribe(subscription: String) {
             subscribers.remove(subscription)
         }
-        override suspend fun invoke(args: List<Any?>, subscriptionArgs: List<String>, objectWriter: ObjectWriter): T? {
+        override suspend fun invoke(scope: ExecutionScope, args: List<Any?>, subscriptionArgs: List<String>, objectWriter: ObjectWriter): T? {
             TODO("not needed")
         }
         override fun subscribe(subscription: String, subscriber: Subscriber) {
@@ -269,9 +270,9 @@ interface FunctionWrapper <T> : Publisher {
 
         override fun arity(): Int = 3
 
-        override suspend fun invoke(vararg args: Any?): T? {
+        override suspend fun invoke(scope: ExecutionScope, vararg args: Any?): T? {
             if(args.size == arity()){
-                val t = implementation(args[0] as R, args[1] as E, args[2] as W)
+                val t = implementation(scope, args[0] as R, args[1] as E, args[2] as W)
                 subscribers.forEach{
                     it.value?.onNext(t)
                 }
@@ -287,12 +288,12 @@ interface FunctionWrapper <T> : Publisher {
     }
 
     class ArityFour<T, R, E, W, Q>(
-        val implementation : suspend (R, E, W, Q)-> T, override val hasReceiver: Boolean
+        val implementation : suspend ExecutionScope.(R, E, W, Q)-> T, override val hasReceiver: Boolean
     ) : Base<T>() {
         override fun unsubscribe(subscription: String) {
             subscribers.remove(subscription)
         }
-        override suspend fun invoke(args: List<Any?>, subscriptionArgs: List<String>, objectWriter: ObjectWriter): T? {
+        override suspend fun invoke(scope: ExecutionScope, args: List<Any?>, subscriptionArgs: List<String>, objectWriter: ObjectWriter): T? {
             TODO("not needed")
         }
         override fun subscribe(subscription: String, subscriber: Subscriber) {
@@ -305,9 +306,9 @@ interface FunctionWrapper <T> : Publisher {
 
         override fun arity(): Int = 4
 
-        override suspend fun invoke(vararg args: Any?): T? {
+        override suspend fun invoke(scope: ExecutionScope, vararg args: Any?): T? {
             if(args.size == arity()){
-                val t = implementation(args[0] as R, args[1] as E, args[2] as W, args[3] as Q)
+                val t = implementation(scope, args[0] as R, args[1] as E, args[2] as W, args[3] as Q)
                 subscribers.forEach{
                     it.value?.onNext(t)
                 }
@@ -323,12 +324,12 @@ interface FunctionWrapper <T> : Publisher {
     }
 
     class ArityFive<T, R, E, W, Q, A>(
-        val implementation : suspend (R, E, W, Q, A)-> T, override val hasReceiver: Boolean
+        val implementation : suspend ExecutionScope.(R, E, W, Q, A)-> T, override val hasReceiver: Boolean
     ) : Base<T>() {
         override fun unsubscribe(subscription: String) {
             subscribers.remove(subscription)
         }
-        override suspend fun invoke(args: List<Any?>, subscriptionArgs: List<String>, objectWriter: ObjectWriter): T? {
+        override suspend fun invoke(scope: ExecutionScope, args: List<Any?>, subscriptionArgs: List<String>, objectWriter: ObjectWriter): T? {
             TODO("not needed")
         }
         override fun subscribe(subscription: String, subscriber: Subscriber) {
@@ -341,9 +342,9 @@ interface FunctionWrapper <T> : Publisher {
 
         override fun arity(): Int = 5
 
-        override suspend fun invoke(vararg args: Any?): T? {
+        override suspend fun invoke(scope: ExecutionScope, vararg args: Any?): T? {
             if(args.size == arity()){
-                val t = implementation(args[0] as R, args[1] as E, args[2] as W, args[3] as Q, args[4] as A)
+                val t = implementation(scope, args[0] as R, args[1] as E, args[2] as W, args[3] as Q, args[4] as A)
                 subscribers.forEach{
                     it.value?.onNext(t)
                 }
@@ -359,12 +360,12 @@ interface FunctionWrapper <T> : Publisher {
     }
 
     class AritySix<T, R, E, W, Q, A, S>(
-        val implementation : suspend (R, E, W, Q, A, S)-> T, override val hasReceiver: Boolean
+        val implementation : suspend ExecutionScope.(R, E, W, Q, A, S)-> T, override val hasReceiver: Boolean
     ) : Base<T>() {
         override fun unsubscribe(subscription: String) {
             subscribers.remove(subscription)
         }
-        override suspend fun invoke(args: List<Any?>, subscriptionArgs: List<String>, objectWriter: ObjectWriter): T? {
+        override suspend fun invoke(scope: ExecutionScope, args: List<Any?>, subscriptionArgs: List<String>, objectWriter: ObjectWriter): T? {
             TODO("not needed")
         }
         override fun subscribe(subscription: String, subscriber: Subscriber) {
@@ -377,9 +378,9 @@ interface FunctionWrapper <T> : Publisher {
 
         override fun arity(): Int = 6
 
-        override suspend fun invoke(vararg args: Any?): T? {
+        override suspend fun invoke(scope: ExecutionScope, vararg args: Any?): T? {
             if(args.size == arity()){
-                val t = implementation(args[0] as R, args[1] as E, args[2] as W, args[3] as Q, args[4] as A, args[5] as S)
+                val t = implementation(scope, args[0] as R, args[1] as E, args[2] as W, args[3] as Q, args[4] as A, args[5] as S)
                 subscribers.forEach{
                     it.value?.onNext(t)
                 }
@@ -395,12 +396,12 @@ interface FunctionWrapper <T> : Publisher {
     }
 
     class AritySeven<T, R, E, W, Q, A, S, D>(
-        val implementation : suspend (R, E, W, Q, A, S, D)-> T, override val hasReceiver: Boolean
+        val implementation : suspend ExecutionScope.(R, E, W, Q, A, S, D)-> T, override val hasReceiver: Boolean
     ) : Base<T>() {
         override fun unsubscribe(subscription: String) {
             subscribers.remove(subscription)
         }
-        override suspend fun invoke(args: List<Any?>, subscriptionArgs: List<String>, objectWriter: ObjectWriter): T? {
+        override suspend fun invoke(scope: ExecutionScope, args: List<Any?>, subscriptionArgs: List<String>, objectWriter: ObjectWriter): T? {
             TODO("not needed")
         }
         override fun subscribe(subscription: String, subscriber: Subscriber) {
@@ -413,9 +414,9 @@ interface FunctionWrapper <T> : Publisher {
 
         override fun arity(): Int = 7
 
-        override suspend fun invoke(vararg args: Any?): T? {
+        override suspend fun invoke(scope: ExecutionScope, vararg args: Any?): T? {
             if(args.size == arity()){
-                val t = implementation(args[0] as R, args[1] as E, args[2] as W, args[3] as Q, args[4] as A, args[5] as S, args[6] as D)
+                val t = implementation(scope, args[0] as R, args[1] as E, args[2] as W, args[3] as Q, args[4] as A, args[5] as S, args[6] as D)
                 subscribers.forEach{
                     it.value?.onNext(t)
                 }
@@ -431,12 +432,12 @@ interface FunctionWrapper <T> : Publisher {
     }
 
     class ArityEight<T, R, E, W, Q, A, S, D, F>(
-        val implementation : suspend (R, E, W, Q, A, S, D, F)-> T, override val hasReceiver: Boolean
+        val implementation : suspend ExecutionScope.(R, E, W, Q, A, S, D, F)-> T, override val hasReceiver: Boolean
     ) : Base<T>() {
         override fun unsubscribe(subscription: String) {
             subscribers.remove(subscription)
         }
-        override suspend fun invoke(args: List<Any?>, subscriptionArgs: List<String>, objectWriter: ObjectWriter): T? {
+        override suspend fun invoke(scope: ExecutionScope, args: List<Any?>, subscriptionArgs: List<String>, objectWriter: ObjectWriter): T? {
             TODO("not needed")
         }
         override fun subscribe(subscription: String, subscriber: Subscriber) {
@@ -449,9 +450,9 @@ interface FunctionWrapper <T> : Publisher {
 
         override fun arity(): Int = 8
 
-        override suspend fun invoke(vararg args: Any?): T? {
+        override suspend fun invoke(scope: ExecutionScope, vararg args: Any?): T? {
             if(args.size == arity()){
-                val t = implementation(args[0] as R, args[1] as E, args[2] as W, args[3] as Q, args[4] as A, args[5] as S, args[6] as D, args[7] as F)
+                val t = implementation(scope, args[0] as R, args[1] as E, args[2] as W, args[3] as Q, args[4] as A, args[5] as S, args[6] as D, args[7] as F)
                 subscribers.forEach{
                     it.value?.onNext(t)
                 }
@@ -467,12 +468,12 @@ interface FunctionWrapper <T> : Publisher {
     }
 
     class ArityNine<T, R, E, W, Q, A, S, D, F, G>(
-        val implementation : suspend (R, E, W, Q, A, S, D, F, G)-> T, override val hasReceiver: Boolean
+        val implementation : suspend ExecutionScope.(R, E, W, Q, A, S, D, F, G)-> T, override val hasReceiver: Boolean
     ) : Base<T>() {
         override fun unsubscribe(subscription: String) {
             subscribers.remove(subscription)
         }
-        override suspend fun invoke(args: List<Any?>, subscriptionArgs: List<String>, objectWriter: ObjectWriter): T? {
+        override suspend fun invoke(scope: ExecutionScope, args: List<Any?>, subscriptionArgs: List<String>, objectWriter: ObjectWriter): T? {
             TODO("not needed")
         }
         override fun subscribe(subscription: String, subscriber: Subscriber) {
@@ -485,9 +486,9 @@ interface FunctionWrapper <T> : Publisher {
 
         override fun arity(): Int = 9
 
-        override suspend fun invoke(vararg args: Any?): T? {
+        override suspend fun invoke(scope: ExecutionScope, vararg args: Any?): T? {
             if(args.size == arity()){
-                val t = implementation(args[0] as R, args[1] as E, args[2] as W, args[3] as Q, args[4] as A, args[5] as S, args[6] as D, args[7] as F, args[8] as G)
+                val t = implementation(scope, args[0] as R, args[1] as E, args[2] as W, args[3] as Q, args[4] as A, args[5] as S, args[6] as D, args[7] as F, args[8] as G)
                 subscribers.forEach{
                     it.value?.onNext(t)
                 }

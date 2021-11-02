@@ -34,7 +34,7 @@ open class GraphQLError(
      * The original error thrown from a field resolver during execution.
      */
     val originalError: Throwable? = null
-) : Exception(message) {
+) : Exception(message, originalError) {
 
     constructor(message: String, node: ASTNode?) : this(message, nodes = node?.let(::listOf))
 

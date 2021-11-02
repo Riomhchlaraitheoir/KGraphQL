@@ -36,8 +36,8 @@ internal class ArgumentsHandler(schema : DefaultSchema) : ArgumentTransformer(sc
 
             val transformedValue = when {
                 //inject request context
-                parameter.type.isInstance(requestContext) -> requestContext
-                parameter.type.isInstance(executionNode) -> executionNode
+                parameter.type.isInstance(requestContext) -> throw NotImplementedError("using context as a parameter is no longer supported")
+                parameter.type.isInstance(executionNode) -> throw NotImplementedError("using executionNode as a parameter is no longer supported")
                 value == null && parameter.type.kind != TypeKind.NON_NULL -> parameter.default
                 value == null && parameter.type.kind == TypeKind.NON_NULL -> {
                     parameter.default ?: throw GraphQLError(

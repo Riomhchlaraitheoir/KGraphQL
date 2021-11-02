@@ -2,7 +2,7 @@
 
 package com.apurebase.kgraphql.schema.structure
 
-import com.apurebase.kgraphql.Context
+import com.apurebase.kgraphql.*
 import com.apurebase.kgraphql.configuration.SchemaConfiguration
 import com.apurebase.kgraphql.defaultKQLTypeName
 import com.apurebase.kgraphql.getIterableElementType
@@ -172,7 +172,7 @@ class SchemaCompilation(
                 name = kType.jvmErasure.simpleName!!,
                 members = kType.jvmErasure.sealedSubclasses.toSet(),
                 description = null
-            ).let { handleUnionType(it) }
+            ).let { handleUnionType(it) }.let { applyNullability(kType, it) }
             else -> handleSimpleType(kType, typeCategory)
         }
     } catch (e: Throwable) {
@@ -285,8 +285,8 @@ class SchemaCompilation(
             .map { property -> handleUnionProperty(property) }
 
 
-        val typenameResolver: suspend (Any) -> String? = { value: Any ->
-            schemaProxy.typeByKClass(value.javaClass.kotlin)?.name ?: typeProxy.name
+        val typenameResolver: suspend ExecutionScope.(Any) -> String? = { value: Any ->
+            schemaProxy.typeByKClass(value::class)?.name ?: typeProxy.name
         }
 
         val __typenameField = handleOperation (

@@ -4,6 +4,7 @@ import com.apurebase.deferredJson.DeferredJsonMap
 import com.apurebase.deferredJson.deferredJsonBuilder
 import com.apurebase.kgraphql.Context
 import com.apurebase.kgraphql.ExecutionException
+import com.apurebase.kgraphql.ExecutionScope
 import com.apurebase.kgraphql.GraphQLError
 import com.apurebase.kgraphql.request.Variables
 import com.apurebase.kgraphql.request.VariablesJson
@@ -19,7 +20,10 @@ import com.apurebase.kgraphql.schema.structure.Type
 import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.coroutineScope
-import kotlinx.serialization.json.*
+import kotlinx.serialization.json.JsonArray
+import kotlinx.serialization.json.JsonElement
+import kotlinx.serialization.json.JsonNull
+import kotlinx.serialization.json.JsonPrimitive
 import nidomiro.kdataloader.DataLoader
 import kotlin.reflect.KProperty1
 
@@ -405,8 +409,9 @@ class DataLoaderPreparedRequestExecutor(val schema: DefaultSchema) : RequestExec
         )
 
         return try {
-            if (hasReceiver) invoke(receiver, *transformedArgs.toTypedArray())
-            else invoke(*transformedArgs.toTypedArray())
+            val scope = ExecutionScope(ctx.requestContext, executionNode)
+            if (hasReceiver) invoke(scope, receiver, *transformedArgs.toTypedArray())
+            else invoke(scope, *transformedArgs.toTypedArray())
         } catch (e: Throwable) {
             if (schema.configuration.wrapErrors && e !is GraphQLError) {
                 throw GraphQLError(e.message ?: "", nodes = listOf(executionNode.selectionNode), originalError = e)

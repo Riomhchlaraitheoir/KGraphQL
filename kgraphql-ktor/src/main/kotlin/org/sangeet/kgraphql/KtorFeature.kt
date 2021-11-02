@@ -82,6 +82,7 @@ class GraphQL(val schema: Schema) {
                         proceed()
                     }
                 } catch (e: Throwable) {
+                    application.log.warn("Error thrown by graphql system", e)
                     if (e is GraphQLError) {
                         context.respond(HttpStatusCode.OK, e.serialize())
                     } else throw e

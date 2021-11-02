@@ -2,6 +2,7 @@ package com.apurebase.kgraphql
 
 import com.apurebase.kgraphql.schema.execution.Execution
 import com.apurebase.kgraphql.schema.model.ast.ASTNode
+import com.apurebase.kgraphql.schema.model.log
 
 class ExecutionException(
     message: String,

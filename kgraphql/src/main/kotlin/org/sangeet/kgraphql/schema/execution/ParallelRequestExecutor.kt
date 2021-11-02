@@ -333,13 +333,14 @@ class ParallelRequestExecutor(val schema: DefaultSchema) : RequestExecutor {
         val transformedArgs = argumentsHandler.transformArguments(funName, inputValues, args, ctx.variables, executionNode, ctx.requestContext)
         //exceptions are not caught on purpose to pass up business logic errors
         return try {
+            val scope = ExecutionScope(ctx.requestContext, executionNode)
             when {
-                hasReceiver -> invoke(receiver, *transformedArgs.toTypedArray())
+                hasReceiver -> invoke(scope, receiver, *transformedArgs.toTypedArray())
                 isSubscription -> {
                     val subscriptionArgs = children.map { (it as Execution.Node).aliasOrKey }
-                    invoke(transformedArgs, subscriptionArgs, objectWriter)
+                    invoke(scope, transformedArgs, subscriptionArgs, objectWriter)
                 }
-                else -> invoke(*transformedArgs.toTypedArray())
+                else -> invoke(scope, *transformedArgs.toTypedArray())
             }
         } catch (e: Throwable) {
             if (schema.configuration.wrapErrors && e !is GraphQLError ) {

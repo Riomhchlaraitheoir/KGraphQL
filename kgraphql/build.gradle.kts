@@ -7,6 +7,7 @@ plugins {
     kotlin("jvm")
     id("org.jetbrains.dokka")
     signing
+    kotlin("plugin.serialization") version "1.5.10"
 }
 
 val caffeine_version: String by project

@@ -1,7 +1,6 @@
 package com.apurebase.kgraphql.schema
 
 import com.apurebase.kgraphql.Context
-import com.apurebase.kgraphql.GraphQLError
 import com.apurebase.kgraphql.configuration.SchemaConfiguration
 import com.apurebase.kgraphql.request.CachingDocumentParser
 import com.apurebase.kgraphql.request.VariablesJson
@@ -41,7 +40,7 @@ class DefaultSchema (
 
     override suspend fun execute(request: String, variables: String?, context: Context, options: ExecutionOptions): String = coroutineScope {
         val parsedVariables = variables
-            ?.let { VariablesJson.Defined(configuration.objectMapper, variables) }
+            ?.let { VariablesJson.Defined(variables) }
             ?: VariablesJson.Empty()
 
         if (!configuration.introspection && request.isIntrospection()) {
