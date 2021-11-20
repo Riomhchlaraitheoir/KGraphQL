@@ -59,7 +59,7 @@ class SchemaCompilation(
 
     suspend fun perform(): DefaultSchema {
         definition.unions.forEach { handleUnionType(it) }
-        definition.objects.forEach { handleObjectType(it.kClass) }
+        definition.objects.forEach { handleObjectType(it.kClass, it.kind) }
         definition.inputObjects.forEach { handleInputType(it.kClass) }
         val queryType = handleQueries()
         val mutationType = handleMutations()
@@ -244,13 +244,13 @@ class SchemaCompilation(
         )
     }
 
-    private suspend fun handleObjectType(kClass: KClass<*>) : Type {
+    private suspend fun handleObjectType(kClass: KClass<*>, explicitKind: TypeKind? = null) : Type {
         assertValidObjectType(kClass)
         val objectDefs = definition.objects.filter { it.kClass.isSuperclassOf(kClass) }
         val objectDef = objectDefs.find { it.kClass == kClass } ?: TypeDef.Object(kClass.defaultKQLTypeName(), kClass)
 
         //treat introspection types as objects -> adhere to reference implementation behaviour
-        val kind = if(kClass.isFinal || objectDef.name.startsWith("__")) TypeKind.OBJECT else TypeKind.INTERFACE
+        val kind = explicitKind ?: if(kClass.isFinal || objectDef.name.startsWith("__")) TypeKind.OBJECT else TypeKind.INTERFACE
 
         val objectType = if(kind == TypeKind.OBJECT) Type.Object(objectDef) else Type.Interface(objectDef)
         val typeProxy = TypeProxy(objectType)

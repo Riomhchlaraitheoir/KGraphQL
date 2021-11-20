@@ -1,5 +1,6 @@
 package com.apurebase.kgraphql.schema.model
 
+import com.apurebase.kgraphql.schema.introspection.TypeKind
 import com.apurebase.kgraphql.schema.scalar.ScalarCoercion
 import com.apurebase.kgraphql.schema.structure.Type
 import kotlin.reflect.KClass
@@ -20,6 +21,7 @@ interface TypeDef {
     class Object<T : Any> (
             name : String,
             override val kClass: KClass<T>,
+            val kind: TypeKind? = null,
             val kotlinProperties: Map<KProperty1<T, *>, PropertyDef.Kotlin<T, *>> = emptyMap(),
             val extensionProperties : List<PropertyDef.Function<T, *>> = emptyList(),
             val dataloadExtensionProperties: List<PropertyDef.DataLoadedFunction<T, *, *>> = emptyList(),

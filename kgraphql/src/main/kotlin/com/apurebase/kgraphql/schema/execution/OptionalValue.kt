@@ -7,6 +7,7 @@ import kotlinx.serialization.descriptors.PrimitiveSerialDescriptor
 import kotlinx.serialization.descriptors.SerialDescriptor
 import kotlinx.serialization.encoding.Decoder
 import kotlinx.serialization.encoding.Encoder
+import kotlin.reflect.KMutableProperty0
 
 @Serializable(with = OptionalValueSerializer::class)
 sealed class OptionalValue<out T: Any> {
@@ -15,6 +16,10 @@ sealed class OptionalValue<out T: Any> {
 
   operator fun invoke(consumer: (T?) -> Unit) {
     if (this is Defined) consumer(value)
+  }
+
+  operator fun invoke(property: KMutableProperty0<in T?>) {
+    if (this is Defined) property.set(value)
   }
 }
 

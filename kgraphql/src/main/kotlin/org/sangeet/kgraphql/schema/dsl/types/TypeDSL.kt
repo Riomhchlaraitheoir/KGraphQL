@@ -4,6 +4,7 @@ import com.apurebase.kgraphql.ExecutionScope
 import com.apurebase.kgraphql.defaultKQLTypeName
 import com.apurebase.kgraphql.schema.SchemaException
 import com.apurebase.kgraphql.schema.dsl.*
+import com.apurebase.kgraphql.schema.introspection.TypeKind
 import com.apurebase.kgraphql.schema.model.FunctionWrapper
 import com.apurebase.kgraphql.schema.model.PropertyDef
 import com.apurebase.kgraphql.schema.model.Transformation
@@ -18,6 +19,7 @@ open class TypeDSL<T : Any>(
     val kClass: KClass<T>
 ) : ItemDSL() {
 
+    var kind: TypeKind? = null
     var name = kClass.defaultKQLTypeName()
 
     internal val transformationProperties = mutableSetOf<Transformation<T, *>>()
@@ -100,6 +102,7 @@ open class TypeDSL<T : Any>(
         return TypeDef.Object(
             name = name,
             kClass = kClass,
+            kind = kind,
             kotlinProperties = describedKotlinProperties.toMap(),
             extensionProperties = extensionProperties.toList(),
             dataloadExtensionProperties = dataloadedExtensionProperties.toList(),
