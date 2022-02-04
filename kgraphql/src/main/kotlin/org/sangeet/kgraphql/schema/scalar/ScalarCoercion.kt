@@ -1,6 +1,7 @@
 package com.apurebase.kgraphql.schema.scalar
 
 import com.apurebase.kgraphql.schema.model.ast.ValueNode
+import kotlinx.serialization.json.JsonPrimitive
 
 /**
  * Scalar resolves to a single scalar object, and can't have sub-selections in the request.
@@ -17,6 +18,8 @@ interface ScalarCoercion<Scalar, Raw> {
      * strategy for scalar deserialization
      */
     fun deserialize(raw: Raw, valueNode: ValueNode? = null): Scalar
+    
+    fun deserialize(json: JsonPrimitive): Scalar
 
 }
 

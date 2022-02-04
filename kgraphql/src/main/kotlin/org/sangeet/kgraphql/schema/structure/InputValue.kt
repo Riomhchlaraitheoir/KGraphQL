@@ -1,5 +1,6 @@
 package com.apurebase.kgraphql.schema.structure
 
+import com.apurebase.kgraphql.Context
 import com.apurebase.kgraphql.schema.introspection.__InputValue
 import com.apurebase.kgraphql.schema.model.InputValueDef
 
@@ -11,6 +12,12 @@ class InputValue<T : Any>(
         override val defaultValue: String? = valueDef.defaultValue?.toString(),
         val isOptionalValue: Boolean
 ) : __InputValue {
+  
+  init {
+    assert(type.kClass != Context::class) {
+      "Input value cannot be context"
+    }
+  }
 
     override val name: String = valueDef.name
 

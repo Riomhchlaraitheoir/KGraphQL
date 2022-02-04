@@ -58,7 +58,11 @@ class RequestInterpreter(val schemaModel: SchemaModel) {
                         if (it.size != operations.size) throw GraphQLError("anonymous operation must be the only defined operation")
                     }.joinToString(prefix = "[", postfix = "]")
 
-                    val operationName = variables.get(String::class, String::class.starProjectedType, OPERATION_NAME_PARAM)
+                    val operationName = variables.get(
+                      String::class,
+                      String::class.starProjectedType,
+                      OPERATION_NAME_PARAM
+                    )
                         ?: throw GraphQLError("Must provide an operation name from: $operationNamesFound")
 
                     operations.firstOrNull { it.name?.value == operationName }

@@ -5,7 +5,6 @@ import com.apurebase.kgraphql.schema.model.ast.TypeNode
 import com.apurebase.kgraphql.schema.model.ast.ValueNode
 import com.apurebase.kgraphql.schema.model.ast.VariableDefinitionNode
 import com.apurebase.kgraphql.GraphQLError
-import com.apurebase.kgraphql.schema.introspection.TypeKind
 import com.apurebase.kgraphql.schema.structure.LookupSchema
 import com.apurebase.kgraphql.schema.structure.Type
 import kotlin.reflect.KClass
@@ -29,7 +28,8 @@ data class Variables(
 
         validateVariable(typeDefinitionProvider.typeReference(kType), typeName, variable)
 
-        var value = variablesJson.get(kClass, kType, keyNode.name)
+        val type =  typeDefinitionProvider.typeByKType(kType)
+        var value = variablesJson.get(kClass, kType, keyNode.name, (type as? Type.Scalar<T>)?.coercion)
         if(value == null && variable.defaultValue != null){
             value = transformDefaultValue(transform, variable.defaultValue, kClass)
         }
