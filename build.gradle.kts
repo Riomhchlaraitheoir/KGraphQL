@@ -1,10 +1,19 @@
+import de.marcphilipp.gradle.nexus.NexusPublishPlugin
+import java.time.Duration
+
+val version: String by project
+val sonatypeUsername: String? = System.getenv("sonatypeUsername")
+val sonatypePassword: String? = System.getenv("sonatypePassword")
+
 plugins {
     id("com.github.ben-manes.versions") version "0.39.0"
-    id("org.jetbrains.kotlinx.kover") version "0.5.0"
-    id("com.vanniktech.maven.publish") version "0.19.0"
-    id("org.jetbrains.dokka") version "1.4.32"
-    kotlin("jvm") version "1.6.0"
-    `maven-publish`
+    id("io.codearte.nexus-staging") version "0.30.0"
+    id("de.marcphilipp.nexus-publish") version "0.4.0"
+
+    kotlin("jvm") version "1.5.10" apply false
+    kotlin("plugin.serialization") version "1.5.0" apply false
+    id("org.jetbrains.dokka") version "1.4.32" apply false
+    jacoco
 }
 
 allprojects {
@@ -17,22 +26,32 @@ subprojects {
     group = "com.apurebase"
     version = version
 
+    apply<NexusPublishPlugin>()
+
+    nexusPublishing {
+        repositories {
+            sonatype()
+        }
+        clientTimeout.set(Duration.parse("PT10M")) // 10 minutes
+    }
 }
 
-publishing {
-    repositories {
-        maven {
-            val releasesRepoUrl = layout.buildDirectory.dir("$buildDir/repos/releases")
-            val snapshotsRepoUrl = layout.buildDirectory.dir("$buildDir/repos/snapshots")
-            url =
-              if ((version as String).endsWith("SNAPSHOT")) uri(snapshotsRepoUrl)
-              else uri(releasesRepoUrl)
-        }
-    }
+nexusStaging {
+    packageGroup = "com.apurebase"
+    username = sonatypeUsername
+    password = sonatypePassword
+    numberOfRetries = 360 // 1 hour if 10 seconds delay
+    delayBetweenRetriesInMillis = 10000 // 10 seconds
 }
 
 tasks {
     wrapper {
         distributionType = Wrapper.DistributionType.ALL
+    }
+    closeRepository {
+        mustRunAfter(subprojects.map { it.tasks.getByName("publishToSonatype") }.toTypedArray())
+    }
+    closeAndReleaseRepository {
+        mustRunAfter(subprojects.map { it.tasks.getByName("publishToSonatype") }.toTypedArray())
     }
 }

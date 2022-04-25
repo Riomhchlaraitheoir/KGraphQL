@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
     id("com.vanniktech.maven.publish.base")
     base
@@ -31,6 +33,7 @@ dependencies {
     implementation("org.jetbrains.exposed:exposed-java-time:$exposed_version")
     implementation("com.h2database:h2:$h2_version")
     implementation("com.zaxxer:HikariCP:$hikari_version")
+    implementation(kotlin("stdlib-jdk8"))
 }
 
 
@@ -70,4 +73,15 @@ signing {
         System.getenv("ORG_GRADLE_PROJECT_signingKey"),
         System.getenv("ORG_GRADLE_PROJECT_signingPassword")
     )
+}
+repositories {
+    mavenCentral()
+}
+val compileKotlin: KotlinCompile by tasks
+compileKotlin.kotlinOptions {
+    jvmTarget = "1.8"
+}
+val compileTestKotlin: KotlinCompile by tasks
+compileTestKotlin.kotlinOptions {
+    jvmTarget = "1.8"
 }

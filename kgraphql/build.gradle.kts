@@ -1,13 +1,9 @@
-import com.vanniktech.maven.publish.JavadocJar
-import com.vanniktech.maven.publish.KotlinJvm
 
 plugins {
-    id("com.vanniktech.maven.publish.base")
-    base
     kotlin("jvm")
     id("org.jetbrains.dokka")
     signing
-    kotlin("plugin.serialization") version "1.5.10"
+    kotlin("plugin.serialization")
 }
 
 val caffeine_version: String by project
@@ -28,8 +24,6 @@ val isReleaseVersion = !version.toString().endsWith("SNAPSHOT")
 dependencies {
     implementation(kotlin("stdlib-jdk8"))
     implementation(kotlin("reflect"))
-
-    implementation("com.vanniktech:gradle-maven-publish-plugin:0.19.0")
 
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutine_version")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:$serialization_version") // JVM dependency
@@ -82,19 +76,50 @@ val dokkaJar by tasks.creating(Jar::class) {
     from(tasks.dokkaHtml)
 }
 
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            artifactId = project.name
+            from(components["java"])
+            artifact(sourcesJar)
+            artifact(dokkaJar)
+            pom {
+                name.set("KGraphQL")
+                description.set("KGraphQL is a Kotlin implementation of GraphQL. It provides a rich DSL to set up the GraphQL schema.")
+                url.set("https://kgraphql.io/")
+                organization {
+                    name.set("aPureBase")
+                    url.set("http://apurebase.com/")
+                }
+                licenses {
+                    license {
+                        name.set("MIT License")
+                        url.set("https://github.com/aPureBase/KGraphQL/blob/main/LICENSE.md")
+                    }
+                }
+                developers {
+                    developer {
+                        id.set("jeggy")
+                        name.set("Jógvan Olsen")
+                        email.set("jol@apurebase.com")
+                    }
+                }
+                scm {
+                    connection.set("scm:git:https://github.com/aPureBase/KGraphQL.git")
+                    developerConnection.set("scm:git:https://github.com/aPureBase/KGraphQL.git")
+                    url.set("https://github.com/aPureBase/KGraphQL/")
+                    tag.set("HEAD")
+                }
+            }
+        }
+    }
+}
+
 signing {
     isRequired = isReleaseVersion
     useInMemoryPgpKeys(
         System.getenv("ORG_GRADLE_PROJECT_signingKey"),
         System.getenv("ORG_GRADLE_PROJECT_signingPassword")
     )
-}
-
-mavenPublishing {
-    configure(
-        KotlinJvm(
-            JavadocJar.Dokka("dokkaHtml"),
-            true
-        )
-    )
+    sign(publishing.publications["maven"])
 }
