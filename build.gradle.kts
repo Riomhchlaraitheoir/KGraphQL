@@ -1,7 +1,9 @@
 import de.marcphilipp.gradle.nexus.NexusPublishPlugin
+import org.gradle.api.JavaVersion.VERSION_1_8
 import java.time.Duration
 
 val version: String by project
+val projectVersion = version
 val sonatypeUsername: String? = System.getenv("sonatypeUsername")
 val sonatypePassword: String? = System.getenv("sonatypePassword")
 
@@ -24,7 +26,7 @@ allprojects {
 
 subprojects {
     group = "com.apurebase"
-    version = version
+    version = projectVersion
 
     apply<NexusPublishPlugin>()
 

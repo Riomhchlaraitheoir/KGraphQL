@@ -1,9 +1,9 @@
 
 plugins {
-    kotlin("jvm")
-    id("org.jetbrains.dokka")
-    signing
-    kotlin("plugin.serialization")
+    base
+  kotlin("jvm")
+  id("org.jetbrains.dokka")
+  kotlin("plugin.serialization")
 }
 
 val caffeine_version: String by project
@@ -65,7 +65,7 @@ tasks {
     }
 }
 
-val sourcesJar by tasks.creating(Jar::class) {
+val sourcesJar = tasks.withType<Jar>().getByName("sourcesJar") {
     classifier = "sources"
     from(sourceSets.main.get().allSource)
 }
@@ -113,13 +113,4 @@ publishing {
             }
         }
     }
-}
-
-signing {
-    isRequired = isReleaseVersion
-    useInMemoryPgpKeys(
-        System.getenv("ORG_GRADLE_PROJECT_signingKey"),
-        System.getenv("ORG_GRADLE_PROJECT_signingPassword")
-    )
-    sign(publishing.publications["maven"])
 }

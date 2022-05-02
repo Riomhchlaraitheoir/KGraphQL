@@ -3,7 +3,6 @@ plugins {
   kotlin("jvm")
   kotlin("plugin.serialization")
   id("org.jetbrains.dokka")
-  signing
 }
 
 val caffeine_version: String by project
@@ -104,13 +103,4 @@ publishing {
             }
         }
     }
-}
-
-signing {
-    isRequired = isReleaseVersion
-    useInMemoryPgpKeys(
-        System.getenv("ORG_GRADLE_PROJECT_signingKey"),
-        System.getenv("ORG_GRADLE_PROJECT_signingPassword")
-    )
-    sign(publishing.publications["maven"])
 }

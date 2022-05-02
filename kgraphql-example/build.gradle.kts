@@ -1,12 +1,10 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    id("com.vanniktech.maven.publish.base")
     base
     application
     kotlin("jvm")
     id("org.jetbrains.dokka")
-    signing
 }
 
 val ktor_version: String by project
@@ -67,13 +65,45 @@ val dokkaJar by tasks.creating(Jar::class) {
     from(tasks.dokkaHtml)
 }
 
-signing {
-    isRequired = isReleaseVersion
-    useInMemoryPgpKeys(
-        System.getenv("ORG_GRADLE_PROJECT_signingKey"),
-        System.getenv("ORG_GRADLE_PROJECT_signingPassword")
-    )
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            artifactId = project.name
+            from(components["java"])
+            artifact(sourcesJar)
+            artifact(dokkaJar)
+            pom {
+                name.set("KGraphQL")
+                description.set("KGraphQL is a Kotlin implementation of GraphQL. It provides a rich DSL to set up the GraphQL schema.")
+                url.set("https://kgraphql.io/")
+                organization {
+                    name.set("aPureBase")
+                    url.set("http://apurebase.com/")
+                }
+                licenses {
+                    license {
+                        name.set("MIT License")
+                        url.set("https://github.com/aPureBase/KGraphQL/blob/main/LICENSE.md")
+                    }
+                }
+                developers {
+                    developer {
+                        id.set("jeggy")
+                        name.set("Jógvan Olsen")
+                        email.set("jol@apurebase.com")
+                    }
+                }
+                scm {
+                    connection.set("scm:git:https://github.com/aPureBase/KGraphQL.git")
+                    developerConnection.set("scm:git:https://github.com/aPureBase/KGraphQL.git")
+                    url.set("https://github.com/aPureBase/KGraphQL/")
+                    tag.set("HEAD")
+                }
+            }
+        }
+    }
 }
+
 repositories {
     mavenCentral()
 }
