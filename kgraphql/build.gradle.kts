@@ -65,7 +65,7 @@ tasks {
     }
 }
 
-val sourcesJar = tasks.withType<Jar>().getByName("sourcesJar") {
+val sourcesJar by tasks.creating(Jar::class.java) {
     classifier = "sources"
     from(sourceSets.main.get().allSource)
 }
