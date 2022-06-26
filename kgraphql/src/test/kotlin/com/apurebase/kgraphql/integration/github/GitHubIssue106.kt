@@ -9,7 +9,6 @@ import org.amshove.kluent.with
 import org.junit.jupiter.api.Test
 
 class GitHubIssue106 {
-
     @Test
     fun `Java class as inputType should throw an appropriate exception`() {
         val schema = KGraphQL.schema {
